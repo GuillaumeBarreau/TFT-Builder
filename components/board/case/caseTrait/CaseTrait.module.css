@@ -1,0 +1,19 @@
+.mainContent {
+    position: absolute;
+    top: -12px;
+    display: flex;
+}
+
+.mainContent_item {
+    margin: 1px;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    z-index: 100;
+    background: #929292;
+}
+
+.mainContent_image {
+    height: 100%;
+    width: 100%;
+} 
