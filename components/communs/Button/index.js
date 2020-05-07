@@ -1,10 +1,10 @@
-import style from './Button.module.css';
+import style from './styled.module.css';
 
-export const Button = ({ onclick, children  }) => {
+export const Button = ({ onClick, children  }) => {
     return (
         <button
             className={style.mainContent}
-            onClick={onclick}
+            onClick={onClick}
         >
             {
                 children

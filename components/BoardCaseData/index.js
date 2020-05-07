@@ -1,7 +1,7 @@
-import style from './CaseData.module.css';
-import * as images from '../../../../data/set3/champions/tft3_champions.js';
+import style from './styled.module.css';
+import * as images from '../../data/set3/champions/tft3_champions.js';
 
-export const CaseData = ({data}) => {
+export const BoardCaseData = ({data}) => {
  
     return (
         <div className={style.mainContent}>

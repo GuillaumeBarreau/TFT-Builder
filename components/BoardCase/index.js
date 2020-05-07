@@ -1,9 +1,9 @@
 import { useState } from "react";
-import style from './Case.module.css';
-import { CaseData } from './caseData/CaseData';
-import { CaseTrait } from './caseTrait/CaseTrait';
+import style from './styled.module.css';
+import { BoardCaseData } from '../BoardCaseData';
+import { BoardCaseTrait } from '../BoardCaseTrait';
 
-export const Case = ({id, data, ...props}) => {
+export const BoardCase = ({id, data, ...props}) => {
     
     return (
         <>
@@ -23,8 +23,8 @@ export const Case = ({id, data, ...props}) => {
                     {
                         data.hasOwnProperty('name') && 
                             <>
-                                <CaseTrait data={data} />
-                                <CaseData data={data} /> 
+                                <BoardCaseTrait data={data} />
+                                <BoardCaseData data={data} /> 
                             </>
                     }
                 </div>

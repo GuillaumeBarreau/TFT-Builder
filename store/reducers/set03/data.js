@@ -1,4 +1,5 @@
-import { RESET_SET_03, FILTER_SET_03 } from '../../actions/set03/actionsTypes';
+import { RESET_TRAITS, SORT_CHAMPIONS } from '../../actions/actionsTypes';
+import { ConcatMultidimensionalArray } from '../../../logic/ConcatMultidimensionalArray.logic';
 
 import champions from '../../../data/set3/champions.json';
 import traits from '../../../data/set3/traits.json';
@@ -11,16 +12,14 @@ const initialState = {
 
 const championsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case RESET_SET_03:
-            
+        case RESET_TRAITS:
             return {
                 ...state,
                 ...initialState
             };
 
-        case FILTER_SET_03:
-            
-            const championsSort = action.trait.map((action) => {
+        case SORT_CHAMPIONS:
+            let championsSort = action.trait.map((action) => {
                 const sorts = initialState.championsFilter.filter(
                     (champion) => {
                         return champion.traits.indexOf(action) !== -1
@@ -29,15 +28,11 @@ const championsReducer = (state = initialState, action) => {
                 return sorts
             })
 
-            const ConcatChampionsSort = [...new Set(
-                Object.keys(championsSort).reduce(function (arr, key) {
-                    return arr.concat(championsSort[key]);
-            }, []))];
-            
+            championsSort = ConcatMultidimensionalArray(championsSort);
             
             return {
                 ...state,
-                championsFilter: ConcatChampionsSort || [],
+                championsFilter: championsSort || [],
             };
 
         default:

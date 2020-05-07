@@ -1,4 +1,4 @@
-import style from './Synergies.module.css';
+import style from './styled.module.css';
 import * as images from '../../data/set3/traits/tft3_traits.js';
 
 export const Synergies = ({ synergies }) => {

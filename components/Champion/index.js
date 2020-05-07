@@ -1,7 +1,7 @@
-import style from './Champion.module.css';
+import style from './styled.module.css';
 import * as images from '../../data/set3/champions/tft3_champions.js';
 
-export const Champion = ({ champions, championSelect, ...props }) => {
+export const Champion = ({ champions, championSelect, onClickSelectionChampion }) => {
     
     return (
         <ul 
@@ -19,7 +19,7 @@ export const Champion = ({ champions, championSelect, ...props }) => {
                                 `${style.itemContent}`+
                                 `${selectedItem ? ` ${style.championSelected}` : ''}`
                             }
-                            {...props}
+                            onClick={onClickSelectionChampion}
                         >
                             
                             <img 

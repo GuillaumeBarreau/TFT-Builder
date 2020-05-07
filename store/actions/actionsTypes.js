@@ -1,0 +1,2 @@
+export const RESET_TRAITS = 'RESET_TRAITS';
+export const SORT_CHAMPIONS = 'SORT_CHAMPIONS';

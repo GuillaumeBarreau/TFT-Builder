@@ -1,8 +1,6 @@
-import { Lane } from './lane/Lane';
-import { Case } from './case/Case';
-
-import { array } from 'prop-types';
-import style from './Board.module.css';
+import { BoardLane } from '../BoardLane';
+import { BoardCase } from '../BoardCase';
+import style from './styled.module.css';
 
 export const Board = ({ board, ...props }) => {
 
@@ -12,36 +10,23 @@ export const Board = ({ board, ...props }) => {
         >
             {
                 board.map((lane, i) =>
-                    <Lane 
+                    <BoardLane 
                         key={i}
                     >
                         {
                             lane.map((data, j) =>
-                                <Case 
+                                <BoardCase 
                                     id={`case__${i}__${j}`}
                                     key={j} 
                                     data={data}
                                     {...props}
                                 >
-                                </Case>
+                                </BoardCase>
                             )
                         }
-                    </Lane>
+                    </BoardLane>
                 )
             }
         </div>
     )
 };
-
-// Board.propTypes = {
-//     board: array,
-// };
-
-// Board.defaultProps = {
-//     board: [
-//         [{}, {}, {}, {}, {}, {}, {}],
-//         [{}, {}, {}, {}, {}, {}, {}],
-//         [{}, {}, {}, {}, {}, {}, {}],
-//         [{}, {}, {}, {}, {}, {}, {}]
-//     ]
-// };

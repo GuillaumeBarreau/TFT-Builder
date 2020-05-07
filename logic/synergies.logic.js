@@ -1,6 +1,6 @@
 import { ConcatMultidimensionalArray } from './ConcatMultidimensionalArray.logic';
 
-export const synergiesProcessing = (championsList, championsSelected, traits) => {
+export const renderSynergies = (championsList, championsSelected, traits) => {
 
     const getChampionsSelectedWidthData = championsSelected.map((championSelected) =>
         championsList.find((champion) =>
@@ -28,7 +28,7 @@ export const synergiesProcessing = (championsList, championsSelected, traits) =>
                 count: 1,
                 sets: data.sets,
                 description: data.description,
-                level: 'none'
+                level: 'partial'
             }
     });
     

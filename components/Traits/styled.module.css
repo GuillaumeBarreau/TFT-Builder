@@ -7,16 +7,14 @@
     left: 0;
     background-color: rgb(16, 32, 40);
     margin: 0;
-    opacity: 0;
     position: fixed;
     align-content: center;
     transition-duration: 0.4s;
-    transform: translateX(-300px);
     color: white;
+    z-index: 1;
 }
 
 .menuSelected  {
-    transform: translateX(0);
     opacity: 1;
 }
 

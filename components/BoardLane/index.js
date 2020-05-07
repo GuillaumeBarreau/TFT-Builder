@@ -1,6 +1,6 @@
-import style from './Lane.module.css';
+import style from './styled.module.css';
 
-export const Lane = ({ children, onDrop, dragOver }) => (
+export const BoardLane = ({ children, onDrop, dragOver }) => (
     <ul 
         className={style.mainContent}
         onDrop={onDrop}
