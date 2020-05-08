@@ -1,0 +1,44 @@
+.mainContent {
+    position: relative;
+    height: 80px;
+    width: 70px;
+    margin: 4px;
+}
+
+.mainContent_list {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContent_background {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-color: rgba(17, 32, 39, 1);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.mainContent_backgroundColorCost-01 {
+  background: linear-gradient(0deg, rgb(49, 51, 74) 0px, rgb(106, 111, 163));
+}
+
+.mainContent_backgroundColorCost-02 {
+  background: linear-gradient(0deg, rgb(25, 74, 60) 0px, rgb(19, 193, 109));
+}
+
+.mainContent_backgroundColorCost-03 {
+  background: linear-gradient(0deg, rgb(45, 59, 134) 0px, rgb(64, 180, 228));
+}
+
+.mainContent_backgroundColorCost-04 {
+  background: linear-gradient(0deg, rgb(115, 19, 119) 0px, rgb(233, 22, 199));
+}
+
+.mainContent_backgroundColorCost-05 {
+  background: linear-gradient(0deg, rgb(168, 99, 22) 0px, rgb(230, 178, 37));
+}
