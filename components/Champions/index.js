@@ -1,7 +1,7 @@
 import style from './styled.module.css';
 import * as images from '../../data/set3/champions/tft3_champions.js';
 
-export const Champion = ({ champions, championSelect, onClickSelectionChampion }) => {
+export const Champions = ({ champions, championSelect, onClickSelectionChampion }) => {
     
     return (
         <ul 

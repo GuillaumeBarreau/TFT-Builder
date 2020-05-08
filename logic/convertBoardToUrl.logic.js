@@ -3,8 +3,6 @@ import base64url from "base64url";
 export const convertBoardToUrl = (board) => {
     
     const convertObjectToString = JSON.stringify(board);
-    console.log(convertObjectToString);
-    
     const converBase64url = base64url(convertObjectToString);
     
     return converBase64url;

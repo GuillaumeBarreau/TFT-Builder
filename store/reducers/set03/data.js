@@ -3,6 +3,7 @@ import { ConcatMultidimensionalArray } from '../../../logic/ConcatMultidimension
 
 import champions from '../../../data/set3/champions.json';
 import traits from '../../../data/set3/traits.json';
+import items from '../../../data/set3/items.json';
 
 import { addChampion, deleteChampion } from '../../../logic/champion.logic';
 
@@ -17,7 +18,8 @@ const initialState = {
     championsFilter: champions,
     championsList: champions,
     traits: traits,
-    board: board
+    board: board,
+    itemsList: items,
 };
 
 const championsReducer = (state = initialState, action) => {
@@ -54,11 +56,13 @@ const championsReducer = (state = initialState, action) => {
                 )
                 return sorts
             })
-            const getUniqChampions = [... new Set(ConcatMultidimensionalArray(championsSort))];
-
+            const initChampionsFilter = (traits.length) 
+                ? [... new Set(ConcatMultidimensionalArray(championsSort))]
+                : champions;
+      
             return {
                 ...state,
-                championsFilter: getUniqChampions || [],
+                championsFilter: initChampionsFilter
             };
 
         default:

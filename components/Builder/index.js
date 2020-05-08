@@ -5,10 +5,12 @@ import { useRouter } from 'next/router'
 import style from './styled.module.css';
 
 import { Board } from '../Board';
-import { Champion } from '../Champion';
+import { Champions } from '../Champions';
+import { Items } from '../Items';
 import { Traits } from '../Traits';
 import { Synergies } from '../Synergies';
 import { Button } from '../communs/Button';
+import { Switch } from '../communs/Switch';
 
 import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION } from '../../store/actions/builder';
 import { addOrDeleteTrait } from '../../logic/traits.logic';
@@ -16,27 +18,25 @@ import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
 import { convertBoardToUrl, convertUrlToObject } from '../../logic/convertBoardToUrl.logic';
 
-export const Builder = ({ dispatch, champions, championsFilter, traits, board }) => {
+export const Builder = ({ dispatch, champions, items, championsFilter, traits, board }) => {
 
-    const router = useRouter();
     const [championSelect, setChampionSelect] = useState('');
+    const [itemSelect, setItemSelect] = useState('');
     const [menuTraitsDisplay, setMenuTraitsDisplay] = useState(false);
     const [selectedTraits, setSelectedTraits] = useState([]);
-    
-    if (router.query.deck) {
-        const initBoard = convertUrlToObject(router.query.deck);
-        if (board != initBoard) {
-            board = initBoard;
-        }
-    }
+    const [listSwap, setListSwap] = useState(false);
 
     const setCopyUrl = () => {
         const query = convertBoardToUrl(board);
-        return navigator.clipboard.writeText(`${location.protocol}${location.host}/?deck=${query}`)
+        return navigator.clipboard.writeText(`${location.protocol}//${location.host}/?deck=${query}`)
     }
 
     const onClickSelectionChampion = (e) => {
         setChampionSelect(e.target.id)
+    };
+
+    const onClickSelectionItem = (e) => {
+        setItemSelect(e.target.id)
     };
 
     const onClickResetTraits = () => {
@@ -63,6 +63,20 @@ export const Builder = ({ dispatch, champions, championsFilter, traits, board })
     };
 
     const synergies = renderSynergies(champions, traits, board);
+    
+    const list = !listSwap 
+        ?
+            <Champions
+                champions={championsFilter}
+                onClickSelectionChampion={onClickSelectionChampion}
+                championSelect={championSelect}
+            /> 
+        :
+            <Items
+                items={items}
+                itemSelect={itemSelect}
+                onClickSelectionItem={onClickSelectionItem}
+            />
 
     return (
         <div className={style.mainContent}>
@@ -79,15 +93,21 @@ export const Builder = ({ dispatch, champions, championsFilter, traits, board })
                 }
             </div>
             <div>
-                <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
-                    Filter
-                </Button>
+                {
+                    !listSwap && 
+                        <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
+                            Filter
+                        </Button>
+                }
                 <Button onClick={setCopyUrl}>
                     Share
                 </Button>
+                <Switch onClick={() => setListSwap(!listSwap)}>
+                    Swap
+                </Switch>
             </div>
             {
-                menuTraitsDisplay && (
+                (menuTraitsDisplay && !listSwap) &&  (
                     <Traits
                         traits={traits}
                         selectedTraits={selectedTraits}
@@ -97,11 +117,9 @@ export const Builder = ({ dispatch, champions, championsFilter, traits, board })
                     />
                 )
             }
-            <Champion
-                champions={championsFilter}
-                onClickSelectionChampion={onClickSelectionChampion}
-                championSelect={championSelect}
-            />
+            {
+                list
+            }
         </div>
     );
 }
@@ -113,6 +131,7 @@ const mapStateToProps = state => {
         championsFilter: state.SET_03.championsFilter,
         traits: state.SET_03.traits,
         board: state.SET_03.board,
+        items: state.SET_03.itemsList,
     };
 };
 
