@@ -1,9 +1,18 @@
 
-export const addChampion = (board, e, championsFilter, championSelect) => {
-    const getXCood = e.target.id.split("__")[1];
-    const getYCood = e.target.id.split("__")[2];
-    board[getXCood][getYCood] = championsFilter.filter(champion => champion.championId === championSelect)[0];
-    return board;
+export const addChampion = (board, target, champions, championSelect) => {
+    const newBoard = [...board];
+    const getXCood = target.id.split("__")[1];
+    const getYCood = target.id.split("__")[2];
+    newBoard[getXCood][getYCood] = champions.find(champion => champion.championId === championSelect);
+    return newBoard;
+};
+
+export const deleteChampion = (board, target) => {
+    const newBoard = [...board];
+    const getXCood = target.id.split("__")[1];
+    const getYCood = target.id.split("__")[2];
+    newBoard[getXCood][getYCood] = {};
+    return newBoard;
 };
 
 export const countChampion = (board) => {

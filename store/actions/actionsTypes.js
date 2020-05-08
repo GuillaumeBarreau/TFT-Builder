@@ -1,2 +1,4 @@
 export const RESET_TRAITS = 'RESET_TRAITS';
 export const SORT_CHAMPIONS = 'SORT_CHAMPIONS';
+export const ADD_CHAMPION = 'ADD_CHAMPION';
+export const DELETE_CHAMPION = 'DELETE_CHAMPION';

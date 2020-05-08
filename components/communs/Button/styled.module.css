@@ -1,18 +1,17 @@
 .mainContent {
     align-self: center;
     background-color: rgb(208, 168, 92);
-    width: 150px;
-    padding: 0.5rem;
-    height: 40px;
-    color: rgb(1, 1, 1);
-    font-size: 0.8125rem;
-    letter-spacing: 0.15em;
-    font-weight: bold;
-    position: relative;
-    padding: 0px;
-    margin-top: 1rem;
     border-width: 0px;
+    color: rgb(1, 1, 1);
     cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 0.15em;
+    margin: 1rem;
+    padding: 0px;
+    position: relative;
+    width: 150px;
 }
 
 .mainContent_Border {

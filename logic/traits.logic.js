@@ -10,7 +10,7 @@ export const addOrDeleteTrait = (array, value) => {
         copyArray.indexOf(value) !== -1
             ? deleteElement(copyArray, index)
             : addElement(copyArray, value);
-
+    
     return copyArray;
 
 }

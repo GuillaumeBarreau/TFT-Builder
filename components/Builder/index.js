@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
-import { useDrag } from 'react-dnd'
+import { useRouter } from 'next/router'
 
 import style from './styled.module.css';
 
@@ -10,26 +10,31 @@ import { Traits } from '../Traits';
 import { Synergies } from '../Synergies';
 import { Button } from '../communs/Button';
 
-import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION } from '../../store/actions/builder';
+import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION } from '../../store/actions/builder';
 import { addOrDeleteTrait } from '../../logic/traits.logic';
 import { renderSynergies } from '../../logic/synergies.logic';
-import { addChampion, countChampion } from '../../logic/champion.logic';
+import { countChampion } from '../../logic/champion.logic';
+import { convertBoardToUrl, convertUrlToObject } from '../../logic/convertBoardToUrl.logic';
 
-export const Builder = ({ dispatch, champions, championsFilter, traits, filterData }) => {
+export const Builder = ({ dispatch, champions, championsFilter, traits, board }) => {
 
+    const router = useRouter();
     const [championSelect, setChampionSelect] = useState('');
-    const [selectedChampions, setSelectedChampions] = useState([]);
     const [menuTraitsDisplay, setMenuTraitsDisplay] = useState(false);
     const [selectedTraits, setSelectedTraits] = useState([]);
-    const [board, setBoard] = useState([
-        [{}, {}, {}, {}, {}, {}, {}],
-        [{}, {}, {}, {}, {}, {}, {}],
-        [{}, {}, {}, {}, {}, {}, {}],
-        [{}, {}, {}, {}, {}, {}, {}]
-    ]);
-    // const [collectedProps, drag] = useDrag({
-    //     item: { id, type },
-    // })
+    
+    if (router.query.deck) {
+        const initBoard = convertUrlToObject(router.query.deck);
+        if (board != initBoard) {
+            board = initBoard;
+        }
+    }
+
+    const setCopyUrl = () => {
+        const query = convertBoardToUrl(board);
+        return navigator.clipboard.writeText(`${location.protocol}${location.host}/?deck=${query}`)
+    }
+
     const onClickSelectionChampion = (e) => {
         setChampionSelect(e.target.id)
     };
@@ -44,26 +49,27 @@ export const Builder = ({ dispatch, champions, championsFilter, traits, filterDa
         dispatch(SORT_CHAMPIONS_ACTION(traits));
         setSelectedTraits(traits);
     };
-    /* 
-        Function pour placer un champion dans notre board 
-        @PARAM e = eventement 
-    */
-    const onClickAddChampion = (e) => {
-        e.preventDefault()
+
+    const onClickAddChampion = (event) => {
+        event.preventDefault();
         if (!championSelect) return;
         if (countChampion(board) >= 15) return;
-        const newBoard = addChampion(board, event, championsFilter, championSelect);
-        setBoard(newBoard);
-        setSelectedChampions([...selectedChampions, championSelect]);
+        dispatch(ADD_CHAMPION_ACTION(event.currentTarget, championSelect))
     };
 
-    const synergies = renderSynergies(champions, selectedChampions, traits);
+    const onClickDeleteChampion = (event, championId) => {
+        event.stopPropagation();
+        dispatch(DELETE_CHAMPION_ACTION(event.currentTarget))
+    };
+
+    const synergies = renderSynergies(champions, traits, board);
 
     return (
         <div className={style.mainContent}>
             <div className={style.mainContent_board}>
                 <Board
-                    onClick={onClickAddChampion}
+                    onClickAddChampion={onClickAddChampion}
+                    onClickDeleteChampion={onClickDeleteChampion}
                     board={board}
                 />
                 {
@@ -71,11 +77,15 @@ export const Builder = ({ dispatch, champions, championsFilter, traits, filterDa
                         <Synergies synergies={synergies} />
                     )
                 }
-
             </div>
-            <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
-                Filter
-            </Button>
+            <div>
+                <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
+                    Filter
+                </Button>
+                <Button onClick={setCopyUrl}>
+                    Share
+                </Button>
+            </div>
             {
                 menuTraitsDisplay && (
                     <Traits
@@ -91,9 +101,7 @@ export const Builder = ({ dispatch, champions, championsFilter, traits, filterDa
                 champions={championsFilter}
                 onClickSelectionChampion={onClickSelectionChampion}
                 championSelect={championSelect}
-            ></Champion>
-
-
+            />
         </div>
     );
 }
@@ -104,7 +112,7 @@ const mapStateToProps = state => {
         champions: state.SET_03.championsList,
         championsFilter: state.SET_03.championsFilter,
         traits: state.SET_03.traits,
-        filterData: [],
+        board: state.SET_03.board,
     };
 };
 

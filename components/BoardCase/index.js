@@ -3,7 +3,7 @@ import style from './styled.module.css';
 import { BoardCaseData } from '../BoardCaseData';
 import { BoardCaseTrait } from '../BoardCaseTrait';
 
-export const BoardCase = ({id, data, ...props}) => {
+export const BoardCase = ({ id, data, onClickAddChampion, onClickDeleteChampion}) => {
     
     return (
         <>
@@ -17,14 +17,17 @@ export const BoardCase = ({id, data, ...props}) => {
                 <div
                     className={style.mainContent_list} 
                     id={id}
-                    draggable={true}
-                    {...props}
+                    onClick={onClickAddChampion}
                 >
                     {
                         data.hasOwnProperty('name') && 
                             <>
                                 <BoardCaseTrait data={data} />
-                                <BoardCaseData data={data} /> 
+                                <BoardCaseData 
+                                    data={data} 
+                                    onClickDeleteChampion={onClickDeleteChampion}
+                                    id={id}
+                                /> 
                             </>
                     }
                 </div>

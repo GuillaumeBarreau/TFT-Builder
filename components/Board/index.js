@@ -2,7 +2,7 @@ import { BoardLane } from '../BoardLane';
 import { BoardCase } from '../BoardCase';
 import style from './styled.module.css';
 
-export const Board = ({ board, ...props }) => {
+export const Board = ({ board, onClickAddChampion, onClickDeleteChampion }) => {
 
     return (
         <div 
@@ -19,9 +19,9 @@ export const Board = ({ board, ...props }) => {
                                     id={`case__${i}__${j}`}
                                     key={j} 
                                     data={data}
-                                    {...props}
-                                >
-                                </BoardCase>
+                                    onClickAddChampion={onClickAddChampion}
+                                    onClickDeleteChampion={onClickDeleteChampion}
+                                />
                             )
                         }
                     </BoardLane>

@@ -1,15 +1,36 @@
 .mainContent {
-    width: calc(100% - 8px);
-    height: calc(100% - 8px);
-    background: red;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    height: calc(100% - 8px);
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: calc(100% - 8px);
 }
 
 .mainContent_image {
-    min-width: 72px;
     min-height: 72px;
+    min-width: 72px;
+}
+
+.spanContent {
+    background: grey;
+    border-radius: 50%;
+    border: none;
+    opacity: 0.4;
+    bottom: -8px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    position: absolute;
+    width: 24px;
+}
+
+.spanContent:hover {
+    opacity: 1;
+    color: white;
+    background: red;
 }
