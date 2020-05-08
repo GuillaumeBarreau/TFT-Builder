@@ -27,7 +27,6 @@
     min-width: 48px;
     min-height: 48px;
     width: 48px;
-    /* border-radius: 50%; */
     border: 3px solid;
     border-image-slice: 1;
 }
@@ -59,8 +58,31 @@
     padding: 0.4rem 0px;
 }
 
-.championSelected {
-    border-color: blue;
+.championSelected img {
+    outline-width: thick;
+    outline: dashed;
+    outline-color: #c5a21f;
+    outline-width: thick;
+}
+
+.championSelected .itemContent_imageBorderCost-01 {
+    outline-color: rgb(106, 111, 163);
+}
+
+.championSelected .itemContent_imageBorderCost-02 {
+    outline-color: rgb(19, 193, 109);
+}
+
+.championSelected .itemContent_imageBorderCost-03 {
+    outline-color: rgb(64, 180, 228);
+}
+
+.championSelected .itemContent_imageBorderCost-04 {
+    outline-color: rgb(170, 31, 175);
+}
+
+.championSelected .itemContent_imageBorderCost-05 {
+    outline-color: rgb(230, 178, 37);
 }
 
 .itemContent * {

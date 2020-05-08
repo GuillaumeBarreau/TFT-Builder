@@ -1,218 +1,218 @@
 [
   {
-    "id": 1,
+    "id": "TFT3_BFSword",
     "name": "B.F. Sword"
   },
   {
-    "id": 2,
+    "id": "TFT3_RecurceBow",
     "name": "Recurve Bow"
   },
   {
-    "id": 3,
+    "id": "TFT3_NeedlesslyLargeRod",
     "name": "Needlessly Large Rod"
   },
   {
-    "id": 4,
+    "id": "TFT3_TearoftheGoddess",
     "name": "Tear of the Goddess"
   },
   {
-    "id": 5,
-    "name": "Chain Vest"
-  },
+		"id": "TFT3_ChainVest",
+		"name": "Chain Vest"
+	},
   {
-    "id": 6,
+    "id": "TFT3_NegatronCloak",
     "name": "Negatron Cloak"
   },
   {
-    "id": 7,
+     "id": "TFT3_GiantsBelt",
     "name": "Giant's Belt"
   },
   {
-    "id": 8,
-    "name": "Spatula"
-  },
+		"id": "TFT3_Spatule",
+		"name": "Spatula"
+	},
   {
-    "id": 9,
-    "name": "Sparring Gloves"
-  },
+		"id": "TFT3_SparringGloves",
+		"name": "Sparring Gloves"
+	},
   {
-    "id": 11,
-    "name": "Deathblade"
-  },
+		"id": "TFT3_Deathblade",
+		"name": "Deathblade"
+	},
   {
-    "id": 12,
-    "name": "Giant Slayer"
-  },
+		"id": "TFT3_GiantSlayer",
+		"name": "Giant Slayer"
+	},
   {
-    "id": 13,
-    "name": "Hextech Gunblade"
-  },
+		"id": "TFT3_HextechGunblade",
+		"name": "Hextech Gunblade"
+	},
   {
-    "id": 14,
-    "name": "Spear of Shojin"
-  },
+		"id": "TFT3_SpearofShojin",
+		"name": "Spear of Shojin"
+	},
   {
-    "id": 15,
-    "name": "Guardian Angel"
-  },
+		"id": "TFT3_GuardianAngel",
+		"name": "Guardian Angel"
+	},
   {
-    "id": 16,
-    "name": "Bloodthirster"
-  },
+		"id": "TFT3_Bloodthirster",
+		"name": "Bloodthirster"
+	},
   {
-    "id": 17,
-    "name": "Zeke's Herald"
-  },
+		"id": "TFT3_Zeke'sHerald",
+		"name": "Zeke's Herald"
+	},
   {
-    "id": 18,
-    "name": "Blade of the Ruined King"
-  },
+		"id": "TFT3_BladeoftheRuinedKing",
+		"name": "Blade of the Ruined King"
+	},
   {
-    "id": 19,
+    "id": "TFT3_InfinityEdge",
     "name": "Infinity Edge"
   },
   {
-    "id": 22,
+    "id": "RapidFirecannon",
     "name": "Rapid Firecannon"
   },
   {
-    "id": 23,
+    "id": "GuinsoosRageblade",
     "name": "Guinsoo's Rageblade"
   },
   {
-    "id": 24,
+    "id": "TFT3_StatikkShiv",
     "name": "Statikk Shiv"
   },
   {
-    "id": 25,
+    "id": "TFT3_TitansResolve",
     "name": "Titan's Resolve"
   },
   {
-    "id": 26,
+    "id": "TFT3_RunaansHurricane",
     "name": "Runaan's Hurricane"
   },
   {
-    "id": 27,
+    "id": "TFT3_ZzRotPortal",
     "name": "Zz'Rot Portal"
   },
   {
-    "id": 28,
+    "id": "TFT3_InfiltratorsTalons",
     "name": "Infiltrator's Talons"
   },
   {
-    "id": 29,
+    "id": "TFT3_LastWhisper",
     "name": "Last Whisper"
   },
   {
-    "id": 33,
+    "id": "TFT3_RabadonsDeathcap",
     "name": "Rabadon's Deathcap"
   },
   {
-    "id": 34,
+    "id": "TFT3_LudensEcho",
     "name": "Luden's Echo"
   },
   {
-    "id": 35,
+    "id": "TFT3_LocketoftheIronSolari",
     "name": "Locket of the Iron Solari"
   },
   {
-    "id": 36,
+    "id": "TFT3_IonicSpark",
     "name": "Ionic Spark"
   },
   {
-    "id": 37,
+    "id": "TFT3_Morellonomicon",
     "name": "Morellonomicon"
   },
   {
-    "id": 38,
+    "id": "TFT3_DemolitionistsCharge",
     "name": "Demolitionist's Charge"
   },
   {
-    "id": 39,
+    "id": "TFT3_JeweledGauntlet",
     "name": "Jeweled Gauntlet"
   },
   {
-    "id": 44,
+    "id": "TFT3_SeraphsEmbrace",
     "name": "Seraph's Embrace"
   },
   {
-    "id": 45,
+    "id": "TFT3_FrozenHeart",
     "name": "Frozen Heart"
   },
   {
-    "id": 46,
+    "id": "TFT3_ChaliceofFavor",
     "name": "Chalice of Favor"
   },
   {
-    "id": 47,
+    "id": "TFT3_Redemption",
     "name": "Redemption"
   },
   {
-    "id": 48,
+    "id": "TFT3_StarGuardiansCharm",
     "name": "Star Guardian's Charm"
   },
   {
-    "id": 49,
+    "id": "TFT3_HandOfJustice",
     "name": "Hand Of Justice"
   },
   {
-    "id": 55,
+    "id": "TFT3_BrambleVest",
     "name": "Bramble Vest"
   },
   {
-    "id": 56,
+    "id": "TFT3_SwordBreaker",
     "name": "Sword Breaker"
   },
   {
-    "id": 57,
+    "id": "TFT3_RedBuff",
     "name": "Red Buff"
   },
   {
-    "id": 58,
+    "id": "TFT3_RebelMedal",
     "name": "Rebel Medal"
   },
   {
-    "id": 59,
+    "id": "TFT3_ShroudofStillness",
     "name": "Shroud of Stillness"
   },
   {
-    "id": 66,
+    "id": "TFT3_DragonsClaw",
     "name": "Dragon's Claw"
   },
   {
-    "id": 67,
+    "id": "TFT3_Zephyr",
     "name": "Zephyr"
   },
   {
-    "id": 68,
+    "id": "TFT3_CelestialOrb",
     "name": "Celestial Orb"
   },
   {
-    "id": 69,
+    "id": "TFT3_Quicksilver",
     "name": "Quicksilver"
   },
   {
-    "id": 77,
+    "id": "TFT3_WarmogsArmor",
     "name": "Warmog's Armor"
   },
   {
-    "id": 78,
+    "id": "TFT3_ProtectorsChestguard",
     "name": "Protector's Chestguard"
   },
   {
-    "id": 79,
+    "id": "TFT3_TrapClaw",
     "name": "Trap Claw"
   },
   {
-    "id": 88,
+    "id": "TFT3_ForceofNature",
     "name": "Force of Nature"
   },
   {
-    "id": 89,
+    "id": "TFT3_DarkStarsHeart",
     "name": "Dark Star's Heart"
   },
   {
-    "id": 99,
+    "id": "TFT3_ThiefsGloves",
     "name": "Thief's Gloves"
   }
 ]

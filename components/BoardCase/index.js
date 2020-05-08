@@ -8,29 +8,30 @@ export const BoardCase = ({ id, data, onClickAddChampion, onClickDeleteChampion}
     return (
         <>
             <li className={style.mainContent} >
-                <div className={style.mainContent_background}
+                <div
                     className={
                         `${style.mainContent_background}` +
-                        ` ${style[`mainContent_backgroundColorCost-0${data.cost}`]}`
+                        `${Object.keys(data).length > 1 ? ` ${style[`mainContent_backgroundColorCost-0${data.cost}`]}` : '' }`
                     }
                 ></div>
-                <div
-                    className={style.mainContent_list} 
+               <div
+                    className={style.mainContent_list}
                     id={id}
                     onClick={onClickAddChampion}
                 >
                     {
-                        data.hasOwnProperty('name') && 
-                            <>
-                                <BoardCaseTrait data={data} />
-                                <BoardCaseData 
-                                    data={data} 
-                                    onClickDeleteChampion={onClickDeleteChampion}
-                                    id={id}
-                                /> 
-                            </>
+                        data.hasOwnProperty('name') &&
+                        <>
+                            <BoardCaseTrait data={data} />
+                            <BoardCaseData
+                                data={data}
+                                onClickDeleteChampion={onClickDeleteChampion}
+                                id={id}
+                            />
+                        </>
                     }
                 </div>
+               
             </li>
         </>
     );
