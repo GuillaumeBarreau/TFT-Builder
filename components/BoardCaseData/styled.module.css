@@ -15,12 +15,13 @@
 }
 
 .spanContent {
-    background: grey;
+    background: none;
     border-radius: 50%;
     border: none;
+    background: white;
     opacity: 0.4;
-    bottom: -8px;
-    color: white;
+    right: -8px;
+    top: 28px;
     cursor: pointer;
     display: flex;
     height: 24px;
@@ -29,8 +30,11 @@
     width: 24px;
 }
 
+.spanContent svg {
+    min-width: 22px;
+}
+
 .spanContent:hover {
     opacity: 1;
     color: white;
-    background: red;
 }

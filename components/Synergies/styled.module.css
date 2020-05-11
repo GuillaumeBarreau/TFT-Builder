@@ -87,37 +87,52 @@
     color: rgba(211, 211, 211, 0.9);
 }
 
-
-
 .mainContent_itemList_item:not(:last-child):after {
     content: '\00276F';
     margin-left: 4px;
     margin-right: 2px;
 }
 
+.synergiesLevel__partial, 
+.synergiesLevel__bronze, 
+.synergiesLevel__silver, 
+.synergiesLevel__gold, 
+.synergiesLevel__chromatic {
+    cursor: pointer;
+
+}
 .synergiesLevel__partial {
     order: 5;
 }
 
 .synergiesLevel__bronze {
-    border: 2px solid #AD8A56;
-    background: rgba(173, 138, 86, 0.2);
-    opacity: 1;
     order: 4;
 }
 
-.synergiesLevel__silver {
-    border: 2px solid #D7D7D7;
-    background: rgba(215, 215, 215, 0.2);
+.synergiesLevel__bronze > div  {
+    border: 2px solid #AD8A56;
+    background: rgba(173, 138, 86, 0.2);
     opacity: 1;
+}
+
+.synergiesLevel__silver {
     order: 3;
 }
 
+.synergiesLevel__silver > div  {
+    border: 2px solid #D7D7D7;
+    background: rgba(215, 215, 215, 0.2);
+    opacity: 1;
+}
+
 .synergiesLevel__gold {
+    order: 2;
+}
+
+.synergiesLevel__gold > div {
     border: 2px solid #c9b037;
     background: rgba(201, 176, 55, 0.2);
     opacity: 1;
-    order: 2;
 }
 
 .synergiesLevel__gold img {
@@ -127,12 +142,15 @@
 }
 
 .synergiesLevel__chromatic {
+    order: 1;
+}
+
+.synergiesLevel__chromatic > div {
     border: 2px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(25deg, #4ff09a, #8ae0ba, #afced9, #cbb9f8);
     background: linear-gradient(25deg, rgba(79, 240, 154, 0.2), rgba(138, 224, 186, 0.2), rgba(175, 206, 217, 0.2), rgba(203, 185, 248, 0.2));
     color: linear-gradient(25deg, #4ff09a, #8ae0ba, #afced9, #cbb9f8);
     opacity: 1;
-    order: 1;
 }
 

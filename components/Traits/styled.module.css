@@ -1,7 +1,7 @@
 .mainContent {
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
+    width: 160px;;
     height: 100vh;
     top: 0;
     left: 0;
@@ -19,8 +19,15 @@
 }
 
 .mainContent_item {
-    width: 75px;
-    margin-top: 16px;
+    flex: 1;
+    max-width: 33.33%;
+    flex-basis: auto;
+    margin-top: 8px;
+}
+
+.mainContent_itemReset {
+    background: red;
+    cursor: pointer;
 }
 
 .mainContent_image {
@@ -31,6 +38,7 @@
     text-align: center;
     color: rgb(150, 156, 184);
     font-size: 0.6rem;
+    overflow-wrap: anywhere;
 }
 
 .mainContent_ButtonContent {
@@ -47,6 +55,7 @@
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0;
 }
 
 .mainContent_itemSlected img {

@@ -1,8 +1,7 @@
 import style from './styled.module.css';
 import * as images from '../../data/set3/traits/tft3_traits.js';
-import { Button } from '../communs/Button';
 
-export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, selectedTraits, onClickDisplayTraits }) => {
+export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, selectedTraits, onMouseEnterSelectionTrait, onMouseLeaveSelectionTrait  }) => {
 
     return (
         <ul className={style.mainContent}>
@@ -18,6 +17,8 @@ export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, sele
                         <button
                             className={style.mainContent_itemButton}
                             onClick={() => onClickSelectionTrait(trait.key)}
+                            onMouseEnter={() => onMouseEnterSelectionTrait(trait.key)}
+                            onMouseLeave={() => onMouseLeaveSelectionTrait(trait.key)}
                         >
 
                             <img
@@ -34,14 +35,14 @@ export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, sele
                     </li>
                 ))
             }
-            <div className={style.mainContent_ButtonContent}>
-                <Button onClick={onClickResetTraits}>
-                    Reset
-                </Button>
-                <Button onClick={onClickDisplayTraits}>
-                    close
-                </Button>
-            </div>
+            <li 
+                className={
+                    `${style.mainContent_item} ${style.mainContent_itemReset}`
+                }
+                onClick={onClickResetTraits}
+            >
+                Reset
+            </li>
         </ul>
     )
 };

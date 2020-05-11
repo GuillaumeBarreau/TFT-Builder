@@ -3,6 +3,7 @@
     height: 80px;
     width: 70px;
     margin: 4px;
+    display: flex;
 }
 
 .mainContent_list {
@@ -47,3 +48,18 @@
 .mainContent_backgroundColorCost-05 {
   background: linear-gradient(0deg, rgb(168, 99, 22) 0px, rgb(230, 178, 37));
 }
+
+.traitNotSelected.mainContent_backgroundColorCost-01,  
+.traitNotSelected.mainContent_backgroundColorCost-02,  
+.traitNotSelected.mainContent_backgroundColorCost-03,  
+.traitNotSelected.mainContent_backgroundColorCost-04,  
+.traitNotSelected.mainContent_backgroundColorCost-05  
+{
+  filter: grayscale(1);
+}
+
+.traitNotSelected ~ .mainContent_list  {
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+

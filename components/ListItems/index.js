@@ -4,12 +4,16 @@ import * as images from '../../data/set3/items/tft3_items.js';
 export const Items = ({ items, itemSelect, onClickSelectionItem }) => {
     
     return (
-        <ul 
-            className={style.mainContent}
-         >
+        <>
             {
                 items.map(item => {
-                    let selectedItem = (itemSelect === item.id) ?  'selected' : null;
+                    console.log("--------------");
+                    console.log(itemSelect);
+                    console.log(item.id);
+                    console.log("--------------");
+                    
+                    const selectedItem = (itemSelect === item.id) ?  true : false;
+                    console.log(selectedItem);
                     
                     return (
                         <li
@@ -24,14 +28,14 @@ export const Items = ({ items, itemSelect, onClickSelectionItem }) => {
 
                             <img
                                 alt={item.name}
-                                src={images[item.id.toLowerCase()]}
+                                src={images[item.id]}
                                 className={style.itemContent_image}
                             />
-                            <p className={style.itemContent_txt}>{item.name} </p>
+                            {/* <p className={style.itemContent_txt}>{item.name} </p> */}
                         </li>
                     )
                 })
             }
-        </ul>
+        </>
     )
 };

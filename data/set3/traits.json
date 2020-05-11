@@ -1,7 +1,7 @@
 [
 	{
 		"key": "TFT3_Blademaster",
-		"name": "Blademaster",
+		"name": "Blade master",
 		"description": "Blademasters' Basic Attacks have a chance to trigger two additional attacks against their target. These additional attacks deal damage like Basic Attacks and trigger on-hit effects.",
 		"type": "class",
 		"sets": [
@@ -175,7 +175,7 @@
 	},
 	{
 		"key": "TFT3_ManaReaver",
-		"name": "Mana-Reaver",
+		"name": "Mana Reaver",
 		"description": "Mana-Reavers' Basic Attacks increase the mana cost of their target's next spellcast by a percentage.",
 		"type": "class",
 		"sets": [
@@ -192,7 +192,7 @@
 	},
 	{
 		"key": "TFT3_MechPilot",
-		"name": "Mech-Pilot",
+		"name": "Mech Pilot",
 		"description": "At the start of combat, three random Mech-Pilots are teleported into a Super-Mech. The Super-Mech has the combined Health, Attack Damage, and Traits of its pilots, as well as 3 random items from among them. When the Super-Mech dies the Pilots are ejected, granted Mana, and continue to fight.",
 		"type": "origin",
 		"sets": [

@@ -60,7 +60,7 @@
 		"name": "Bloodthirster"
 	},
   {
-		"id": "TFT3_Zeke'sHerald",
+		"id": "TFT3_ZekesHerald",
 		"name": "Zeke's Herald"
 	},
   {
@@ -72,11 +72,11 @@
     "name": "Infinity Edge"
   },
   {
-    "id": "RapidFirecannon",
+    "id": "TFT3_RapidFirecannon",
     "name": "Rapid Firecannon"
   },
   {
-    "id": "GuinsoosRageblade",
+    "id": "TFT3_GuinsoosRageblade",
     "name": "Guinsoo's Rageblade"
   },
   {
