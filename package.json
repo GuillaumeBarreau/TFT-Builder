@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-plugin-inline-react-svg": "^1.1.1",
     "base64url": "^3.0.1",
+    "history": "^4.10.1",
     "next": "9.3.5",
     "next-images": "^1.4.0",
     "next-redux-wrapper": "^6.0.0-rc.7",

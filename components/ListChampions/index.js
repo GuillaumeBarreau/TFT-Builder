@@ -1,15 +1,19 @@
 import style from './styled.module.css';
 import * as images from '../../data/set3/champions/tft3_champions.js';
 
-export const Champions = ({ champions, championSelect, onClickSelectionChampion }) => {
+export const Champions = ({ champions, championSelect, onClickSelectionChampion, traitHover }) => {
     
     return (
-        <ul 
-            className={style.mainContent}
-         >
+        <>
             {
                 champions.map(champion => {
-                    let selectedItem = (championSelect === champion.championId) ?  'selected' : null;
+                    const selectedItem = (championSelect === champion.championId) ?  true : false;
+
+                    const selectedTraitHover = (traitHover !== null) 
+                        ? (champion.traits.indexOf(traitHover)) !== -1 ?
+                            'traitSelected' :
+                            'traitNotSelected'
+                        : null;
                     
                     return (
                         <li 
@@ -17,11 +21,11 @@ export const Champions = ({ champions, championSelect, onClickSelectionChampion 
                             id={champion.championId} 
                             className={
                                 `${style.itemContent}`+
-                                `${selectedItem ? ` ${style.championSelected}` : ''}`
+                                `${selectedItem ? ` ${style.championSelected}` : ''}`+
+                                `${selectedTraitHover ? ` ${style[selectedTraitHover]}` : ''}`
                             }
                             onClick={onClickSelectionChampion}
                         >
-                            
                             <img 
                                 alt={champion.championId} 
                                 src={images[champion.championId.toLowerCase()]}
@@ -35,6 +39,6 @@ export const Champions = ({ champions, championSelect, onClickSelectionChampion 
                     )
                 })
             }
-        </ul>
+        </>
     )
 };

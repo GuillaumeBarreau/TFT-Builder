@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
-import { useRouter } from 'next/router'
+import Router from 'next/router'
+import { createBrowserHistory } from 'history';
 
 import style from './styled.module.css';
 
 import { Board } from '../Board';
-import { Champions } from '../Champions';
-import { Items } from '../Items';
+import { Champions } from '../ListChampions';
+import { Items } from '../ListItems';
 import { Traits } from '../Traits';
 import { Synergies } from '../Synergies';
 import { Button } from '../communs/Button';
 import { Switch } from '../communs/Switch';
+import { List } from '../List';
 
 import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION } from '../../store/actions/builder';
 import { addOrDeleteTrait } from '../../logic/traits.logic';
@@ -24,8 +26,9 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const [itemSelect, setItemSelect] = useState('');
     const [menuTraitsDisplay, setMenuTraitsDisplay] = useState(false);
     const [selectedTraits, setSelectedTraits] = useState([]);
+    const [traitHover, setTraitHover] = useState(null);
     const [listSwap, setListSwap] = useState(false);
-
+    
     const setCopyUrl = () => {
         const query = convertBoardToUrl(board);
         return navigator.clipboard.writeText(`${location.protocol}//${location.host}/?deck=${query}`)
@@ -35,7 +38,15 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         setChampionSelect(e.target.id)
     };
 
-    const onClickSelectionItem = (e) => {
+    const onMouseLeaveSelectionTrait = () => {
+        setTraitHover(null)
+    };
+
+    const onMouseEnterSelectionTrait = (trait) => {
+        setTraitHover(trait)
+    };
+
+    const onClickSelectionItem = (e) => {        
         setItemSelect(e.target.id)
     };
 
@@ -55,6 +66,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         if (!championSelect) return;
         if (countChampion(board) >= 15) return;
         dispatch(ADD_CHAMPION_ACTION(event.currentTarget, championSelect))
+        setChampionSelect('');
     };
 
     const onClickDeleteChampion = (event, championId) => {
@@ -70,6 +82,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                 champions={championsFilter}
                 onClickSelectionChampion={onClickSelectionChampion}
                 championSelect={championSelect}
+                traitHover={traitHover}
             /> 
         :
             <Items
@@ -85,10 +98,15 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                     onClickAddChampion={onClickAddChampion}
                     onClickDeleteChampion={onClickDeleteChampion}
                     board={board}
+                    traitHover={traitHover}
                 />
                 {
                     Object.keys(synergies).length > 0 && (
-                        <Synergies synergies={synergies} />
+                        <Synergies 
+                            synergies={synergies} 
+                            onMouseEnterSelectionTrait={onMouseEnterSelectionTrait}    
+                            onMouseLeaveSelectionTrait={onMouseLeaveSelectionTrait}    
+                        />
                     )
                 }
             </div>
@@ -96,15 +114,21 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                 {
                     !listSwap && 
                         <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
-                            Filter
+                        {
+                            menuTraitsDisplay ? 'Close' : 'Filter'
+                        }
                         </Button>
                 }
-                <Button onClick={setCopyUrl}>
-                    Share
+                {
+                    /* <Button onClick={setCopyUrl}>
+                     Share
+                    </Button> */
+                }
+                <Button onClick={() => setListSwap(!listSwap)}>
+                    {
+                        listSwap ? 'Champions' : 'Items'
+                    }
                 </Button>
-                <Switch onClick={() => setListSwap(!listSwap)}>
-                    Swap
-                </Switch>
             </div>
             {
                 (menuTraitsDisplay && !listSwap) &&  (
@@ -114,11 +138,15 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                         onClickSelectionTrait={onClickSelectionTrait}
                         onClickResetTraits={onClickResetTraits}
                         onClickDisplayTraits={() => setMenuTraitsDisplay(!menuTraitsDisplay)}
+                        onMouseLeaveSelectionTrait={onMouseLeaveSelectionTrait}
+                        onMouseEnterSelectionTrait={onMouseEnterSelectionTrait}
                     />
                 )
             }
             {
-                list
+                <List>
+                    {list}
+                </List>
             }
         </div>
     );
