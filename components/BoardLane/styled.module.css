@@ -1,12 +1,12 @@
 .mainContent {
-    display: flex;
-    margin: 0.25rem;
+  display: flex;
+  margin: 0.25rem;
 }
 
 .mainContent:nth-child(even) {
-    margin-left: 3.25rem;
+  margin-left: 3.25rem;
 }
 
 .mainContent:nth-child(odd) {
-    margin-right: 3.25rem;
+  margin-right: 3.25rem;
 }
