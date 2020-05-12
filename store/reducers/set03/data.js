@@ -1,4 +1,4 @@
-import { RESET_TRAITS, SORT_CHAMPIONS, ADD_CHAMPION, DELETE_CHAMPION } from '../../actions/actionsTypes';
+import { RESET_TRAITS, SORT_CHAMPIONS, ADD_CHAMPION, DELETE_CHAMPION, ADD_ITEM, DELETE_ITEM } from '../../actions/actionsTypes';
 import { ConcatMultidimensionalArray } from '../../../logic/ConcatMultidimensionalArray.logic';
 
 import champions from '../../../data/set3/champions.json';
@@ -6,6 +6,7 @@ import traits from '../../../data/set3/traits.json';
 import items from '../../../data/set3/items.json';
 
 import { addChampion, deleteChampion } from '../../../logic/champion.logic';
+import { addItem, deleteItem } from '../../../logic/item.logic';
 
 const board = [
     [{}, {}, {}, {}, {}, {}, {}],
@@ -39,6 +40,19 @@ const championsReducer = (state = initialState, action) => {
                 board: addChampion(state.board, target, champions, value)
             };
 
+        case ADD_ITEM:
+
+            return {
+                ...state,
+                board: addItem(state.board, action.target, action.value)
+            }
+
+        case DELETE_ITEM:
+            
+            return {
+                ...state,
+                board: deleteItem(state.board, action.target)
+            }
         case DELETE_CHAMPION:
             
             return {

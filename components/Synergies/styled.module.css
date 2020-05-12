@@ -1,12 +1,12 @@
 .mainContent {
     position: absolute;
-    right: 16px;
+    right: 1rem;
     top: 0;
-    padding: 4px;
-    width: 160px;
-    height: 420px;
+    padding: 0.25rem;
+    width: 10rem;
+    height: 26.25rem;
     display: flex;
-    margin-top: 32px;
+    margin-top: 2rem;
     flex-wrap: wrap;
     align-content: baseline;
     direction: rtl;
@@ -17,7 +17,7 @@
 }
 
 .mainContent::-webkit-scrollbar {
-    width: 5px;
+    width: 0.3125rem;
 }
 
 .mainContent::-webkit-scrollbar-track {
@@ -26,17 +26,17 @@
 
 .mainContent::-webkit-scrollbar-thumb {
   background-color: #112027;
-  border-radius: 32px;
-  outline: 1px solid slategrey;
+  border-radius: 2rem;
+  outline: 0.0625rem solid slategrey;
 }
 
 .mainContent_item {
     direction:ltr;
     position: relative;
     margin: 0.5rem 0.25rem ;
-    width: 136px;
+    width: 8.5rem;
     height: fit-content;
-    border: 1px solid white;
+    border: 0.0625rem solid white;
     background: #112027;
     display: flex;
     padding: 0.125rem;
@@ -49,8 +49,8 @@
 }
 
 .mainContent_itemImage {
-    height: 32px;
-    width: 32px;
+    height: 2rem;
+    width: 2rem;
     justify-content: flex-end;
 }
 
@@ -78,7 +78,7 @@
 
 .mainContent_itemList_item {
     color: rgba(211, 211, 211, 0.2);
-    margin: 1px;
+    margin: 0.0625rem;
     font-size: 0.7rem;
     align-self: center;
 }
@@ -89,8 +89,8 @@
 
 .mainContent_itemList_item:not(:last-child):after {
     content: '\00276F';
-    margin-left: 4px;
-    margin-right: 2px;
+    margin-left: 0.25rem;
+    margin-right: 0.125rem;
 }
 
 .synergiesLevel__partial, 
@@ -110,7 +110,7 @@
 }
 
 .synergiesLevel__bronze > div  {
-    border: 2px solid #AD8A56;
+    border: 0.125rem solid #AD8A56;
     background: rgba(173, 138, 86, 0.2);
     opacity: 1;
 }
@@ -120,7 +120,7 @@
 }
 
 .synergiesLevel__silver > div  {
-    border: 2px solid #D7D7D7;
+    border: 0.125rem solid #D7D7D7;
     background: rgba(215, 215, 215, 0.2);
     opacity: 1;
 }
@@ -130,7 +130,7 @@
 }
 
 .synergiesLevel__gold > div {
-    border: 2px solid #c9b037;
+    border: 0.125rem solid #c9b037;
     background: rgba(201, 176, 55, 0.2);
     opacity: 1;
 }
@@ -146,7 +146,7 @@
 }
 
 .synergiesLevel__chromatic > div {
-    border: 2px solid;
+    border: 0.125rem solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(25deg, #4ff09a, #8ae0ba, #afced9, #cbb9f8);
     background: linear-gradient(25deg, rgba(79, 240, 154, 0.2), rgba(138, 224, 186, 0.2), rgba(175, 206, 217, 0.2), rgba(203, 185, 248, 0.2));

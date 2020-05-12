@@ -7,13 +7,7 @@ export const Items = ({ items, itemSelect, onClickSelectionItem }) => {
         <>
             {
                 items.map(item => {
-                    console.log("--------------");
-                    console.log(itemSelect);
-                    console.log(item.id);
-                    console.log("--------------");
-                    
                     const selectedItem = (itemSelect === item.id) ?  true : false;
-                    console.log(selectedItem);
                     
                     return (
                         <li

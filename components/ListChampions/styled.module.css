@@ -2,12 +2,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 1rem 168px;;
+    margin: 1rem 10.5rem;;
 }
 
 .itemContent {
-    margin: 2px;
-    width: 52px;
+    margin: 0.125rem;
+    min-width: 3.25rem;
+    min-height: 3.25rem;
+    width: 3.25rem;
     color: white;
     display: flex;
     flex-direction: column;
@@ -24,8 +26,8 @@
 }
 
 .itemContent_image {
-    width: 44px;
-    border: 3px solid;
+    width: 2.75rem;
+    border: 0.1875rem solid;
     border-image-slice: 1;
 }
 
@@ -53,7 +55,7 @@
     font-size: 0.7rem;
     color: rgb(137, 145, 182);
     text-align: center;
-    padding: 0.4rem 0px;
+    padding: 0.4rem 0rem;
 }
 
 .championSelected img {

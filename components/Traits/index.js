@@ -13,12 +13,12 @@ export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, sele
                             `${selectedTraits.indexOf(trait.key) !== -1 ? ` ${style.mainContent_itemSlected}` : ''}`
                         }
                         key={trait.key}
+                        onMouseEnter={() => onMouseEnterSelectionTrait(trait.key)}
+                        onMouseLeave={() => onMouseLeaveSelectionTrait(trait.key)}
                     >
                         <button
                             className={style.mainContent_itemButton}
                             onClick={() => onClickSelectionTrait(trait.key)}
-                            onMouseEnter={() => onMouseEnterSelectionTrait(trait.key)}
-                            onMouseLeave={() => onMouseLeaveSelectionTrait(trait.key)}
                         >
 
                             <img

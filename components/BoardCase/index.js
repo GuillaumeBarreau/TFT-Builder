@@ -1,9 +1,9 @@
-import { useState } from "react";
 import style from './styled.module.css';
 import { BoardCaseData } from '../BoardCaseData';
 import { BoardCaseTrait } from '../BoardCaseTrait';
+import { BoardCaseItem } from '../BoardCaseItem';
 
-export const BoardCase = ({ id, data, onClickAddChampion, onClickDeleteChampion, traitHover}) => {
+export const BoardCase = ({ id, data, onClickAddElement, onClickDeleteChampion, onClickDeleteItem, traitHover}) => {
     
     const selectedTraitHover = (traitHover !== null)
         ? (data.traits && (data.traits.indexOf(traitHover)) !== -1) ?
@@ -26,7 +26,7 @@ export const BoardCase = ({ id, data, onClickAddChampion, onClickDeleteChampion,
                         `${style.mainContent_list}` 
                     }
                     id={id}
-                    onClick={onClickAddChampion}
+                    onClick={onClickAddElement}
                 >
                     {
                         data.hasOwnProperty('name') &&
@@ -37,6 +37,16 @@ export const BoardCase = ({ id, data, onClickAddChampion, onClickDeleteChampion,
                                 onClickDeleteChampion={onClickDeleteChampion}
                                 id={id}
                             />
+                            {
+                                data.hasOwnProperty('items') && (
+                                    <BoardCaseItem 
+                                        items={data.items}
+                                        onClickDeleteItem={onClickDeleteItem}
+                                        id={id}
+                                    />
+                                )
+                            }
+                            
                         </>
                     }
                 </div>

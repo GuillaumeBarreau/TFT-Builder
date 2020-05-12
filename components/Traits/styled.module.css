@@ -1,7 +1,7 @@
 .mainContent {
     display: flex;
     flex-wrap: wrap;
-    width: 160px;;
+    width: 10rem;;
     height: 100vh;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@
     flex: 1;
     max-width: 33.33%;
     flex-basis: auto;
-    margin-top: 8px;
+    padding-top: 0.5rem;
 }
 
 .mainContent_itemReset {
@@ -45,7 +45,7 @@
     width: 100%;
     text-align: center;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
 }

@@ -2,3 +2,5 @@ export const RESET_TRAITS = 'RESET_TRAITS';
 export const SORT_CHAMPIONS = 'SORT_CHAMPIONS';
 export const ADD_CHAMPION = 'ADD_CHAMPION';
 export const DELETE_CHAMPION = 'DELETE_CHAMPION';
+export const ADD_ITEM = 'ADD_ITEM';
+export const DELETE_ITEM = 'DELETE_ITEM';
