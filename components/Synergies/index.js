@@ -76,3 +76,9 @@ export const Synergies = ({ synergies, onMouseLeaveSelectionTrait, onMouseEnterS
 
     )
 };
+
+Synergies.propTypes = {
+    synergies: PropTypes.object.isRequired,
+    onMouseLeaveSelectionTrait: PropTypes.func.isRequired,
+    onMouseEnterSelectionTrait: PropTypes.func.isRequired,
+};

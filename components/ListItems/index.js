@@ -34,3 +34,13 @@ export const Items = ({ items, itemSelect, onClickSelectionItem }) => {
         </>
     )
 };
+
+Items.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string
+        })).isRequired,
+    itemSelect: PropTypes.string.isRequired,
+    onClickSelectionItem: PropTypes.func.isRequired,
+};

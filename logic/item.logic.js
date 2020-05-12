@@ -3,6 +3,7 @@ export const addItem = (board, target, itemSelect) => {
     const getXCood = target.id.split("__")[1];
     const getYCood = target.id.split("__")[2];
     
+    // eslint-disable-next-line no-prototype-builtins
     if (newBoard[getXCood][getYCood].hasOwnProperty('items')){
         if (newBoard[getXCood][getYCood].items.length < 3) {
             newBoard[getXCood][getYCood].items = [...newBoard[getXCood][getYCood].items, itemSelect]

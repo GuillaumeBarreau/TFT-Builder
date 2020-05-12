@@ -47,3 +47,26 @@ export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, sele
         </ul>
     )
 };
+
+Traits.propTypes = {
+    traits: PropTypes.arrayOf(
+        PropTypes.shape({
+            description: PropTypes.string,
+            key: PropTypes.string,
+            name: PropTypes.string,
+            sets: PropTypes.arrayOf(
+                PropTypes.shape({
+                    max: PropTypes.number,
+                    min: PropTypes.number,
+                    style: PropTypes.string
+                })
+            ),
+            type: PropTypes.string,
+        })
+    ).isRequired,
+    onClickSelectionTrait: PropTypes.func.isRequired,
+    onClickResetTraits: PropTypes.func.isRequired,
+    selectedTraits: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onMouseEnterSelectionTrait: PropTypes.func.isRequired,
+    onMouseLeaveSelectionTrait: PropTypes.func.isRequired,
+};

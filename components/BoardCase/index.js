@@ -30,6 +30,7 @@ export const BoardCase = ({ id, data, onClickAddElement, onClickDeleteChampion, 
                     onClick={onClickAddElement}
                 >
                     {
+                        // eslint-disable-next-line no-prototype-builtins
                         data.hasOwnProperty('name') &&
                         <>
                             <BoardCaseTrait data={data} />
@@ -39,6 +40,7 @@ export const BoardCase = ({ id, data, onClickAddElement, onClickDeleteChampion, 
                                 id={id}
                             />
                             {
+                                // eslint-disable-next-line no-prototype-builtins
                                 data.hasOwnProperty('items') && (
                                     <BoardCaseItem 
                                         items={data.items}

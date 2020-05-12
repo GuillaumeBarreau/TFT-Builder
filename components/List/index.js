@@ -12,3 +12,7 @@ export const List = ({ children }) => {
         </ul>
     )
 };
+
+List.propTypes = {
+    children: PropTypes.node.isRequired,
+};

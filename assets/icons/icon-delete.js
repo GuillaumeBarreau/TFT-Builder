@@ -1,6 +1,6 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
-function IconDelete({color}) {
+const IconDelete = (color) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -15,5 +15,9 @@ function IconDelete({color}) {
 		</svg>
 	);
 }
+
+IconDelete.propTypes = {
+	color: PropTypes.string.isRequired
+};
 
 export default IconDelete;
