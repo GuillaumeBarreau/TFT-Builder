@@ -13,3 +13,6 @@ export const Switch = ({ onClick}) => {
     );
 };
 
+Switch.propTypes = {
+    onClick: PropTypes.func.isRequired,
+};
