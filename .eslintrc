@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+	},
+  "parser": "babel-eslint", 
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+	},
+  "plugins": [
+		"react"
+	],
+
+  "extends": [
+		"eslint:recommended",
+		"plugin:react/recommended"
+		// "airbnb",
+	],
+
+  "rules": {
+		// NextJs does not require you to import React into each component. so suppress errors for missing 'import React' in files.
+		"react/react-in-jsx-scope": "off",
+		"react/display-name": 1,
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/no-unused-vars": "off"
+	},
+  "settings": {
+    "react": {
+      "version": "detect"
+		}
+	},
+  "globals": {
+		// NextJs does not require you to import React into each component. so suppress errors for missing 'import React' in files.
+    "React": "writable"
+	}
+}
