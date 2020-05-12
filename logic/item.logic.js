@@ -1,28 +1,27 @@
 export const addItem = (board, target, itemSelect) => {
-    const newBoard = [...board];
+
     const getXCood = target.id.split("__")[1];
     const getYCood = target.id.split("__")[2];
-    
     // eslint-disable-next-line no-prototype-builtins
-    if (newBoard[getXCood][getYCood].hasOwnProperty('items')){
-        if (newBoard[getXCood][getYCood].items.length < 3) {
-            newBoard[getXCood][getYCood].items = [...newBoard[getXCood][getYCood].items, itemSelect]
+    if (board[getXCood][getYCood].hasOwnProperty('items')){
+        if (board[getXCood][getYCood].items.length < 3) {
+            board[getXCood][getYCood].items = [...board[getXCood][getYCood].items, itemSelect]
         }
     } else {
-        newBoard[getXCood][getYCood].items = [itemSelect]
+        board[getXCood][getYCood].items = [itemSelect]
     }
     
-    return newBoard;
+    return board;
 };
 
 export const deleteItem = (board, target) => {
-    const newBoard = [...board];
+
     const getXCood = target.id.split("__")[1];
     const getYCood = target.id.split("__")[2];
     const getIndex = target.id.split("__")[3];
 
-    newBoard[getXCood][getYCood].items.splice(getIndex, 1)
+    board[getXCood][getYCood].items.splice(getIndex, 1)
 
-    return newBoard;
+    return board;
 };
 

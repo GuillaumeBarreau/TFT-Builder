@@ -11,7 +11,7 @@ const board = [
 ];
 
 const initialState = {
-    data: board,
+    data: [...board],
 };
 
 export const boardReducer = (state = initialState, action) => {
@@ -21,27 +21,28 @@ export const boardReducer = (state = initialState, action) => {
             
             return {
                 ...state,
-                data: addChampion(state.data, action.target, CUR_SET.champions, action.value)
+                data: addChampion([...state.data], action.target, CUR_SET.champions, action.value)
             };
 
         case ADD_ITEM:
-
+            console.log(CUR_SET.champions);
+            
             return {
                 ...state,
-                data: addItem(state.data, action.target, action.value)
+                data: addItem([...state.data], action.target, action.value)
             }
 
         case DELETE_ITEM:
             
             return {
                 ...state,
-                data: deleteItem(state.data, action.target)
+                data: deleteItem([...state.data], action.target)
             }
         case DELETE_CHAMPION:
             
             return {
                 ...state,
-                data: deleteChampion(state.data, action.target)
+                data: deleteChampion([...state.data], action.target)
             };
 
         default:

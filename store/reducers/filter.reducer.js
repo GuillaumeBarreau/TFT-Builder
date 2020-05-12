@@ -26,6 +26,7 @@ export const filterReducer = (state = initialState, action) => {
                 )
                 return sorts
             })
+            
             const initChampionsFilter = (traits.length)
                 ? [... new Set(ConcatMultidimensionalArray(championsSort))]
                 : CUR_SET.champions;
