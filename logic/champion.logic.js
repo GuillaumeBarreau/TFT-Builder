@@ -1,18 +1,20 @@
 
 export const addChampion = (board, target, champions, championSelect) => {
-    const newBoard = [...board];
+    
     const getXCood = target.id.split("__")[1];
     const getYCood = target.id.split("__")[2];
-    newBoard[getXCood][getYCood] = champions.find(champion => champion.championId === championSelect);
-    return newBoard;
+    board[getXCood][getYCood] = {...champions.find(champion => champion.championId === championSelect)};
+    
+    return board;
 };
 
 export const deleteChampion = (board, target) => {
-    const newBoard = [...board];
+
     const getXCood = target.id.split("__")[1];
     const getYCood = target.id.split("__")[2];
-    newBoard[getXCood][getYCood] = {};
-    return newBoard;
+    board[getXCood][getYCood] = {};
+
+    return board;
 };
 
 export const countChampion = (board) => {
