@@ -1,0 +1,6 @@
+out/
+.next/
+node_modules/
+cypress/
+coverage/
+storybook-out/

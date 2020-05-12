@@ -1,14 +1,14 @@
 .mainContent {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
 }
 
 .mainContent > * {
-    padding: 0.5rem;;
+  padding: 0.5rem;
 }
 
 .mainContent_board {
-    display: flex;
+  display: flex;
 }

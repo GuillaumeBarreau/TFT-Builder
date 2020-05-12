@@ -1,6 +1,6 @@
 .mainContent {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 1rem 10.5rem;;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 10.5rem;
 }

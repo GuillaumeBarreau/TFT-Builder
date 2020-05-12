@@ -1,9 +1,9 @@
 .mainContent {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
 }
 
 .mainContent > div {
-    margin: 0.5rem;
+  margin: 0.5rem;
 }
