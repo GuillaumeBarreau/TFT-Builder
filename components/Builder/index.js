@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { connect } from 'react-redux';
-import Router from 'next/router'
-import { createBrowserHistory } from 'history';
 
 import style from './styled.module.css';
 
@@ -11,14 +9,12 @@ import { Items } from '../ListItems';
 import { Traits } from '../Traits';
 import { Synergies } from '../Synergies';
 import { Button } from '../communs/Button';
-import { Switch } from '../communs/Switch';
 import { List } from '../List';
-
-import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION } from '../../store/actions/builder';
+import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION, ADD_ITEM_ACTION, DELETE_ITEM_ACTION } from '../../store/actions/builder';
 import { addOrDeleteTrait } from '../../logic/traits.logic';
 import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
-import { convertBoardToUrl, convertUrlToObject } from '../../logic/convertBoardToUrl.logic';
+import { convertBoardToUrl } from '../../logic/convertBoardToUrl.logic';
 
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board }) => {
 
@@ -28,7 +24,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const [selectedTraits, setSelectedTraits] = useState([]);
     const [traitHover, setTraitHover] = useState(null);
     const [listSwap, setListSwap] = useState(false);
-    
+
     const setCopyUrl = () => {
         const query = convertBoardToUrl(board);
         return navigator.clipboard.writeText(`${location.protocol}//${location.host}/?deck=${query}`)
@@ -46,7 +42,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         setTraitHover(trait)
     };
 
-    const onClickSelectionItem = (e) => {        
+    const onClickSelectionItem = (e) => {
         setItemSelect(e.target.id)
     };
 
@@ -69,55 +65,71 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         setChampionSelect('');
     };
 
-    const onClickDeleteChampion = (event, championId) => {
+    const onClickAddItem = (event) => {
+        event.preventDefault();
+        if (!itemSelect) return;
+        if (!event.currentTarget.childElementCount) return;
+        dispatch(ADD_ITEM_ACTION(event.currentTarget, itemSelect))
+    };
+
+    const onClickDeleteChampion = (event) => {
         event.stopPropagation();
         dispatch(DELETE_CHAMPION_ACTION(event.currentTarget))
     };
 
+    const onClickDeleteItem = (event, item) => {
+        event.stopPropagation();
+        dispatch(DELETE_ITEM_ACTION(event.currentTarget, item))
+    };
+
     const synergies = renderSynergies(champions, traits, board);
-    
-    const list = !listSwap 
-        ?
+    const onClickAddElement = listSwap ? onClickAddItem : onClickAddChampion;
+
+    const list = !listSwap
+        ? (
             <Champions
                 champions={championsFilter}
                 onClickSelectionChampion={onClickSelectionChampion}
                 championSelect={championSelect}
                 traitHover={traitHover}
-            /> 
-        :
+            />
+        )
+        : (
             <Items
                 items={items}
                 itemSelect={itemSelect}
                 onClickSelectionItem={onClickSelectionItem}
             />
+        )
 
     return (
         <div className={style.mainContent}>
             <div className={style.mainContent_board}>
                 <Board
-                    onClickAddChampion={onClickAddChampion}
                     onClickDeleteChampion={onClickDeleteChampion}
+                    onClickDeleteItem={onClickDeleteItem}
+                    onClickAddElement={onClickAddElement}
                     board={board}
                     traitHover={traitHover}
                 />
                 {
                     Object.keys(synergies).length > 0 && (
-                        <Synergies 
-                            synergies={synergies} 
-                            onMouseEnterSelectionTrait={onMouseEnterSelectionTrait}    
-                            onMouseLeaveSelectionTrait={onMouseLeaveSelectionTrait}    
+                        <Synergies
+                            synergies={synergies}
+                            onMouseEnterSelectionTrait={onMouseEnterSelectionTrait}
+                            onMouseLeaveSelectionTrait={onMouseLeaveSelectionTrait}
                         />
                     )
                 }
             </div>
             <div>
                 {
-                    !listSwap && 
-                        <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
+                    !listSwap &&
+                    <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
                         {
                             menuTraitsDisplay ? 'Close' : 'Filter'
                         }
-                        </Button>
+                    </Button>
                 }
                 {
                     /* <Button onClick={setCopyUrl}>
@@ -131,7 +143,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                 </Button>
             </div>
             {
-                (menuTraitsDisplay && !listSwap) &&  (
+                (menuTraitsDisplay && !listSwap) && (
                     <Traits
                         traits={traits}
                         selectedTraits={selectedTraits}

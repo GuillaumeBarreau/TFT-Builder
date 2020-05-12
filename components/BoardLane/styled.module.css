@@ -4,9 +4,9 @@
 }
 
 .mainContent:nth-child(even) {
-    margin-left: 52px;
+    margin-left: 3.25rem;
 }
 
 .mainContent:nth-child(odd) {
-    margin-right: 52px;
+    margin-right: 3.25rem;
 }

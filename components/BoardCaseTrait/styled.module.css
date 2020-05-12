@@ -1,13 +1,13 @@
 .mainContent {
     position: absolute;
-    top: -12px;
+    top: -0.75rem;
     display: flex;
 }
 
 .mainContent_item {
-    margin: 1px;
-    height: 22px;
-    width: 22px;
+    margin: 0.0625rem;
+    height: 1.375rem;
+    width: 1.375rem;
     border-radius: 50%;
     z-index: 100;
     background: #929292;
