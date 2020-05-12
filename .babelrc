@@ -3,6 +3,6 @@
         "next/babel"
     ],
     "plugins": [
-        "inline-react-svg",
+        "inline-react-svg"
     ]
 }

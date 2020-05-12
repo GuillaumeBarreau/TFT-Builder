@@ -165,13 +165,13 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
 }
 
 const mapStateToProps = state => {
-
+    
     return {
-        champions: state.SET_03.championsList,
-        championsFilter: state.SET_03.championsFilter,
-        traits: state.SET_03.traits,
-        board: state.SET_03.board,
-        items: state.SET_03.itemsList,
+        champions: state.champions.data,
+        championsFilter: state.filter.data,
+        traits: state.traits.data,
+        board: state.board.data,
+        items: state.items.data,
     };
 };
 

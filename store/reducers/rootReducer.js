@@ -1,9 +1,20 @@
 import { combineReducers } from 'redux';
+import { itemsReducer } from './items.reducer';
+import { championsReducer } from './champions.reducer';
+import { filterReducer } from './filter.reducer';
+import { boardReducer } from './board.reducer';
+import { traitsReducer } from './traits.reducer';
 
-import SET_03 from './set03/data';
+const STORE = {
+    items: itemsReducer,
+    filter: filterReducer,
+    board: boardReducer,
+    champions: championsReducer,
+    traits: traitsReducer,
+};
 
-const reducers = combineReducers({
-    SET_03
-});
+const reducers = combineReducers(
+    STORE
+);
 
 export default reducers;
