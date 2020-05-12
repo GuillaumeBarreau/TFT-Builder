@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import style from './styled.module.css';
 import * as images from '../../data/set3/champions/tft3_champions.js';
-
 import IconDelete from '../../assets/icons/icon-delete.js';
 
 export const BoardCaseData = ({ data, onClickDeleteChampion, id }) => {
@@ -25,4 +25,14 @@ export const BoardCaseData = ({ data, onClickDeleteChampion, id }) => {
             </button>
         </>
     );
+};
+
+BoardCaseData.propTypes = {
+    id: PropTypes.string.isRequired,
+    data: PropTypes.shape({
+        championId: PropTypes.string.isRequired,
+        cost: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired
+    }).isRequired,
+    onClickDeleteChampion: PropTypes.func.isRequired,
 };
