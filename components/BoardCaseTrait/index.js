@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import style from './styled.module.css';
 import * as images from '../../data/set3/traits/tft3_traits.js';
 
 export const BoardCaseTrait = ({data}) => {
- 
+    
     return (
         <ul className={style.mainContent}>
             {
@@ -19,4 +20,10 @@ export const BoardCaseTrait = ({data}) => {
             }
         </ul>
     );
+};
+
+BoardCaseTrait.propTypes = {
+    data: PropTypes.shape({
+        traits: PropTypes.arrayOf(PropTypes.string)
+    }).isRequired,
 };

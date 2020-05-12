@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import style from './styled.module.css';
 import * as images from '../../data/set3/traits/tft3_traits.js';
 

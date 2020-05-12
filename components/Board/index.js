@@ -1,28 +1,23 @@
 import { BoardLane } from '../BoardLane';
 import { BoardCase } from '../BoardCase';
 import style from './styled.module.css';
+import PropTypes from 'prop-types';
 
-export const Board = ({ board, onClickAddElement, onClickDeleteChampion, onClickDeleteItem,  traitHover }) => {
-
+export const Board = ({ board, ...props }) => {
     return (
-        <div 
-            className={style.mainContent}
-        >
+        <div className={style.mainContent}>
             {
                 board.map((lane, i) =>
-                    <BoardLane 
+                    <BoardLane
                         key={i}
                     >
                         {
                             lane.map((data, j) =>
-                                <BoardCase 
+                                <BoardCase
                                     id={`case__${i}__${j}`}
-                                    key={j} 
+                                    key={j}
                                     data={data}
-                                    onClickAddElement={onClickAddElement}
-                                    onClickDeleteChampion={onClickDeleteChampion}
-                                    onClickDeleteItem={onClickDeleteItem}
-                                    traitHover={traitHover}
+                                    {...props}
                                 />
                             )
                         }
@@ -31,4 +26,8 @@ export const Board = ({ board, onClickAddElement, onClickDeleteChampion, onClick
             }
         </div>
     )
+};
+
+Board.propTypes = {
+    board: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
 };

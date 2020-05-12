@@ -1,3 +1,5 @@
+
+import PropTypes from 'prop-types';
 import style from './styled.module.css';
 
 export const List = ({ children }) => {

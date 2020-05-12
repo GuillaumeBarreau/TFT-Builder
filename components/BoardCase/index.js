@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import style from './styled.module.css';
 import { BoardCaseData } from '../BoardCaseData';
 import { BoardCaseTrait } from '../BoardCaseTrait';
@@ -53,4 +54,17 @@ export const BoardCase = ({ id, data, onClickAddElement, onClickDeleteChampion, 
             </li>
         </>
     );
+};
+
+BoardCase.defaultProps = {
+    traitHover: null,
+};
+
+BoardCase.propTypes = {
+    id: PropTypes.string.isRequired,
+    data: PropTypes.object.isRequired,
+    onClickAddElement: PropTypes.func.isRequired,
+    onClickDeleteChampion: PropTypes.func.isRequired,
+    onClickDeleteItem: PropTypes.func.isRequired,
+    traitHover: PropTypes.string
 };

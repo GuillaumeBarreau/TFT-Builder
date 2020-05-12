@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import style from './styled.module.css';
-
 import { Board } from '../Board';
 import { Champions } from '../ListChampions';
 import { Items } from '../ListItems';
@@ -17,7 +16,6 @@ import { countChampion } from '../../logic/champion.logic';
 import { convertBoardToUrl } from '../../logic/convertBoardToUrl.logic';
 
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board }) => {
-
     const [championSelect, setChampionSelect] = useState('');
     const [itemSelect, setItemSelect] = useState('');
     const [menuTraitsDisplay, setMenuTraitsDisplay] = useState(false);
@@ -111,6 +109,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                     onClickAddElement={onClickAddElement}
                     board={board}
                     traitHover={traitHover}
+                    banana='banana'
                 />
                 {
                     Object.keys(synergies).length > 0 && (
@@ -162,7 +161,50 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
             }
         </div>
     );
-}
+};
+
+Builder.propTypes = {
+    dispatch: PropTypes.func, 
+    champions: PropTypes.arrayOf(
+        PropTypes.shape({
+            championId: PropTypes.string,
+            cost: PropTypes.number,
+            name: PropTypes.string,
+            traits: PropTypes.arrayOf(PropTypes.string)
+        })
+    ).isRequired, 
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string
+    })).isRequired,
+    championsFilter: PropTypes.arrayOf(
+        PropTypes.shape({
+            championId: PropTypes.string,
+            cost: PropTypes.number,
+            name: PropTypes.string,
+            traits: PropTypes.arrayOf(PropTypes.string)
+        })
+    ).isRequired, 
+    traits: PropTypes.arrayOf(
+        PropTypes.shape({
+            description: PropTypes.string,
+            key: PropTypes.string,
+            name: PropTypes.string,
+            sets: PropTypes.arrayOf(
+                PropTypes.shape({
+                    max: PropTypes.number,
+                    min: PropTypes.number,
+                    style: PropTypes.string
+                })
+            ),
+            type: PropTypes.string,
+        })
+    ).isRequired, 
+    board: PropTypes.arrayOf(
+        PropTypes.arrayOf(PropTypes.object)
+    ).isRequired
+};
 
 const mapStateToProps = state => {
     
