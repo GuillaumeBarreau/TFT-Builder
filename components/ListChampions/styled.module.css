@@ -1,27 +1,18 @@
-.mainContent {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem 10.5rem;
-}
-
 .itemContent {
   align-items: center;
   color: white;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  margin: 0.125rem;
-  min-height: 3.25rem;
-  min-width: 3.25rem;
-  width: 3.25rem;
+  min-height: 5.5%;
+  min-width: 5.5%;
+  width: 5.5%;
 }
 
 .itemContent_image {
   border: 0.1875rem solid;
   border-image-slice: 1;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: calc(100% - 22%);
 }
 
 .itemContent_txt {

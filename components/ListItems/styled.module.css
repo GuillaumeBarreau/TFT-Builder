@@ -1,24 +1,19 @@
-.mainContent {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem 9.5rem;
-}
-
 .itemContent {
-  margin: 0.125rem;
-  width: 3.25rem;
+  align-items: center;
   color: white;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  cursor: pointer;
+  min-height: 5.5%;
+  min-width: 5.5%;
+  width: 5.5%;
+  margin-bottom: 0.5rem;
 }
 
 .itemContent_image {
-  width: 2.75rem;
   border: 0.1875rem solid;
   border-image-slice: 1;
+  width: calc(100% - 22%);
   border-image-source: linear-gradient(0deg, rgb(49, 53, 74) 0, rgb(106, 126, 163));
 }
 

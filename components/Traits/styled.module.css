@@ -1,17 +1,22 @@
 .mainContent {
   display: flex;
   flex-wrap: wrap;
-  width: 10rem;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgb(16, 32, 40);
-  margin: 0;
-  position: fixed;
-  align-content: center;
-  transition-duration: 0.4s;
   color: white;
   z-index: 1;
+  padding: 0.5rem;
+  justify-content: center;
+}
+
+.mainContent > button {
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.background {
+  background-color: rgb(16, 32, 40);
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .menuSelected {
@@ -22,12 +27,15 @@
   flex: 1;
   max-width: 33.33%;
   flex-basis: auto;
-  padding-top: 0.5rem;
+  padding-top: 0.25rem;
 }
 
 .mainContent_itemReset {
-  background: red;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .mainContent_image {
@@ -56,6 +64,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  width: 100%;
 }
 
 .mainContent_itemSlected img {
