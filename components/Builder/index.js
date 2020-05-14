@@ -102,15 +102,60 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
 
     return (
         <div className={style.mainContent}>
-            <div className={style.mainContent_board}>
-                <Board
-                    onClickDeleteChampion={onClickDeleteChampion}
-                    onClickDeleteItem={onClickDeleteItem}
-                    onClickAddElement={onClickAddElement}
-                    board={board}
-                    traitHover={traitHover}
-                    banana='banana'
-                />
+            <div className={style.mainContent_left} > 
+                {
+                    (menuTraitsDisplay && !listSwap) && (
+                        <Traits
+                            traits={traits}
+                            selectedTraits={selectedTraits}
+                            onClickSelectionTrait={onClickSelectionTrait}
+                            onClickResetTraits={onClickResetTraits}
+                            onClickDisplayTraits={() => setMenuTraitsDisplay(!menuTraitsDisplay)}
+                            onMouseLeaveSelectionTrait={onMouseLeaveSelectionTrait}
+                            onMouseEnterSelectionTrait={onMouseEnterSelectionTrait}
+                        />
+                    )
+                }
+            </div>
+            <div className={style.mainContent_mid}>
+                <div className={style.mainContent_board}>
+                    <Board
+                        onClickDeleteChampion={onClickDeleteChampion}
+                        onClickDeleteItem={onClickDeleteItem}
+                        onClickAddElement={onClickAddElement}
+                        board={board}
+                        traitHover={traitHover}
+                        banana='banana'
+                    />
+                </div>
+                <div className={style.mainContent_buttons}>
+                    {
+                        !listSwap &&
+                        <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
+                            {
+                                menuTraitsDisplay ? 'Close' : 'Filter'
+                            }
+                        </Button>
+                    }
+                    {
+                        /* <Button onClick={setCopyUrl}>
+                         Share
+                        </Button> */
+                    }
+                    <Button onClick={() => setListSwap(!listSwap)}>
+                        {
+                            listSwap ? 'Champions' : 'Items'
+                        }
+                    </Button>
+                </div>
+  
+                {
+                    <List>
+                        {list}
+                    </List>
+                }
+            </div>
+            <div className={style.mainContent_right} >
                 {
                     Object.keys(synergies).length > 0 && (
                         <Synergies
@@ -121,44 +166,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                     )
                 }
             </div>
-            <div>
-                {
-                    !listSwap &&
-                    <Button onClick={() => setMenuTraitsDisplay(!menuTraitsDisplay)}>
-                        {
-                            menuTraitsDisplay ? 'Close' : 'Filter'
-                        }
-                    </Button>
-                }
-                {
-                    /* <Button onClick={setCopyUrl}>
-                     Share
-                    </Button> */
-                }
-                <Button onClick={() => setListSwap(!listSwap)}>
-                    {
-                        listSwap ? 'Champions' : 'Items'
-                    }
-                </Button>
-            </div>
-            {
-                (menuTraitsDisplay && !listSwap) && (
-                    <Traits
-                        traits={traits}
-                        selectedTraits={selectedTraits}
-                        onClickSelectionTrait={onClickSelectionTrait}
-                        onClickResetTraits={onClickResetTraits}
-                        onClickDisplayTraits={() => setMenuTraitsDisplay(!menuTraitsDisplay)}
-                        onMouseLeaveSelectionTrait={onMouseLeaveSelectionTrait}
-                        onMouseEnterSelectionTrait={onMouseEnterSelectionTrait}
-                    />
-                )
-            }
-            {
-                <List>
-                    {list}
-                </List>
-            }
+
         </div>
     );
 };

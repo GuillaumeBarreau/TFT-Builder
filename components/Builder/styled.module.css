@@ -1,14 +1,37 @@
 .mainContent {
   display: flex;
-  flex-direction: column;
   position: relative;
+  justify-content: space-between;
+}
+
+.mainContent_left {
+  min-width: 14%;
+  max-width: 14%;
+  min-height: 100vh;
+  display: flex;
   align-items: center;
 }
 
-.mainContent > * {
-  padding: 0.5rem;
+.mainContent_mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .mainContent_board {
   display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.mainContent_buttons {
+  justify-content: center;
+  width: fit-content;
+  margin-top: 1rem;
+}
+
+.mainContent_right {
+  min-width: 14%;
+  max-width: 14%;
 }

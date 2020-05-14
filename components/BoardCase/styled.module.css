@@ -1,8 +1,8 @@
 .mainContent {
   position: relative;
-  height: 80px;
-  width: 70px;
-  margin: 4px;
+  height: 5rem;
+  width: 4.375rem;
+  margin: 0.25rem;
   display: flex;
 }
 
