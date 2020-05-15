@@ -49,7 +49,6 @@ Champions.defaultProps = {
 };
 
 Champions.propTypes = {
-    children: PropTypes.node,
     champions: PropTypes.arrayOf(
         PropTypes.shape({
             championId: PropTypes.string,
