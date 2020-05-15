@@ -2,23 +2,21 @@ import { ConcatMultidimensionalArray } from './ConcatMultidimensionalArray.logic
 
 export const renderSynergies = (championsList, traits, board) => {
 
-    const championsSelected = ConcatMultidimensionalArray( 
-        board.map((lane) => {
-            return lane
-                .filter((data) => (Object.keys(data).length))
-                .map(champion => champion.championId)
-        }
-    ));
-
-    const getChampionsSelectedWidthData = championsSelected.map((championSelected) =>
-        championsList.find((champion) =>
-            championSelected === champion.championId
-        )
-    );
-
-    const duplicateChampionSelectedDelete = [...new Set(getChampionsSelectedWidthData)];
+    let championsSelected = [];
     
-    const getOnlyChampionsTraits = duplicateChampionSelectedDelete.map(data => data && data.traits);
+    board.forEach((lane) => {
+        championsSelected = [...championsSelected, ...lane.filter((data) => Object.keys(data).length)]
+    });
+
+    let noDuplicate= [];
+
+    championsSelected.forEach(champion => {
+        if (!noDuplicate.some(champ => champion.championId === champ.championId)) {
+            noDuplicate = [...noDuplicate, champion]
+        }
+    });
+    
+    const getOnlyChampionsTraits = noDuplicate.map(data => data && data.traits);
 
     const concatChampionsTraits = ConcatMultidimensionalArray(getOnlyChampionsTraits);
 

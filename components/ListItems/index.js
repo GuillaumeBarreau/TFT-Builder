@@ -25,6 +25,7 @@ export const Items = ({ items, itemSelect, onClickSelectionItem }) => {
                                 src={images[item.id]}
                                 className={style.itemContent_image}
                             />
+                            <p className={style.itemContent_txt}>{item.name}</p>
                         </li>
                     )
                 })

@@ -17,6 +17,13 @@
   border-image-source: linear-gradient(0deg, rgb(49, 53, 74) 0, rgb(106, 126, 163));
 }
 
+.itemContent_txt {
+  font-size: 0.4rem;
+  color: rgb(137, 145, 182);
+  text-align: center;
+  padding: 0.4rem 0;
+}
+
 .itemContent:hover .itemContent_image {
   transform: scale(1.1);
 }
