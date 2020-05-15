@@ -3,9 +3,14 @@ import style from './styled.module.css';
 import * as images from '../../data/set3/traits/tft3_traits.js';
 
 export const BoardCaseTrait = ({data}) => {
-    
+        
     return (
-        <ul className={style.mainContent}>
+        <ul 
+            className={
+                `${style.mainContent}` +
+                `${data.traits.length > 3 ? ` ${style.reverse}` : ''}`
+            }
+        >
             {
                 data.traits.map(trait => {
                     
@@ -15,8 +20,9 @@ export const BoardCaseTrait = ({data}) => {
                                 className={style.mainContent_image} 
                                 src={images[trait.toLowerCase()]}
                             />
-                    </li>
-                )})
+                        </li>
+                    )
+                })
             }
         </ul>
     );
