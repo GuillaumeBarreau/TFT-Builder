@@ -18,7 +18,7 @@ export const BoardCase = ({ id, data, onClickAddElement, onClickDeleteChampion, 
                 <div
                     className={
                         `${style.mainContent_background}` +
-                        `${Object.keys(data).length > 1 ? ` ${style[`mainContent_backgroundColorCost-0${data.cost}`]}` : ''}` +
+                        `${Object.keys(data).length >= 1 ? ` ${style[`mainContent_backgroundColorCost-0${data.cost}`]}` : ''}` +
                         `${selectedTraitHover ? ` ${style[selectedTraitHover]}` : ''}`
                     }
                 ></div>
