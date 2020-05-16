@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../data/set3/items/tft3_items.js';
+import * as images from '../../../data/set3/items/tft3_items.js';
 
 export const Items = ({ items, itemSelect, onClickSelectionItem }) => {
     

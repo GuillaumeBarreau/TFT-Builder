@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../data/set3/traits/tft3_traits.js';
-import { Button } from '../communs/Button';
+import * as images from '../../../data/set3/traits/tft3_traits.js';
+import { Button } from '../../communs/Button';
 
 export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, selectedTraits, onMouseEnterSelectionTrait, onMouseLeaveSelectionTrait  }) => {
 

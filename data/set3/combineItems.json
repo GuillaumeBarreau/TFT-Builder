@@ -1,0 +1,137 @@
+[
+  {
+    "id": "TFT3_BFSword",
+    "name": "B.F. Sword",
+    "combination": {
+      "TFT3_BFSword": "TFT3_Deathblade",
+      "TFT3_RecurceBow": "TFT3_GiantSlayer",
+      "TFT3_NeedlesslyLargeRod": "TFT3_HextechGunblade",
+      "TFT3_TearoftheGoddess": "TFT3_SpearofShojin",
+      "TFT3_ChainVest": "TFT3_GuardianAngel",
+      "TFT3_NegatronCloak": "TFT3_Bloodthirster",
+      "TFT3_GiantsBelt": "TFT3_ZekesHerald",
+      "TFT3_Spatule": "TFT3_BladeoftheRuinedKing",
+      "TFT3_SparringGloves": "TFT3_InfinityEdge"
+    }
+  },
+  {
+    "id": "TFT3_RecurceBow",
+    "name": "Recurve Bow",
+    "combination": {
+      "TFT3_BFSword": "TFT3_GiantSlayer",
+      "TFT3_RecurceBow": "TFT3_RapidFirecannon",
+      "TFT3_NeedlesslyLargeRod": "TFT3_GuinsoosRageblade",
+      "TFT3_TearoftheGoddess": "TFT3_StatikkShiv",
+      "TFT3_ChainVest": "TFT3_TitansResolve",
+      "TFT3_NegatronCloak": "TFT3_RunaansHurricane",
+      "TFT3_GiantsBelt": "TFT3_ZzRotPortal",
+      "TFT3_Spatule": "TFT3_InfiltratorsTalons",
+      "TFT3_SparringGloves": "TFT3_LastWhisper"
+    }
+  },
+  {
+    "id": "TFT3_NeedlesslyLargeRod",
+    "name": "Needlessly Large Rod",
+    "combination": {
+      "TFT3_BFSword": "TFT3_HextechGunblade",
+      "TFT3_RecurceBow": "TFT3_GuinsoosRageblade",
+      "TFT3_NeedlesslyLargeRod": "TFT3_RabadonsDeathcap",
+      "TFT3_TearoftheGoddess": "TFT3_LudensEcho",
+      "TFT3_ChainVest": "TFT3_LocketoftheIronSolari",
+      "TFT3_NegatronCloak": "TFT3_IonicSpark",
+      "TFT3_GiantsBelt": "TFT3_Morellonomicon",
+      "TFT3_Spatule": "TFT3_DemolitionistsCharge",
+      "TFT3_SparringGloves": "TFT3_JeweledGauntlet"
+    }
+  },
+  {
+    "id": "TFT3_TearoftheGoddess",
+    "name": "Tear of the Goddess",
+    "combination": {
+      "TFT3_BFSword": "TFT3_SpearofShojin",
+      "TFT3_RecurceBow": "TFT3_StatikkShiv",
+      "TFT3_NeedlesslyLargeRod": "TFT3_LudensEcho",
+      "TFT3_TearoftheGoddess": "TFT3_SeraphsEmbrace",
+      "TFT3_ChainVest": "TFT3_FrozenHeart",
+      "TFT3_NegatronCloak": "TFT3_ChaliceofFavor",
+      "TFT3_GiantsBelt": "TFT3_Redemption",
+      "TFT3_Spatule": "TFT3_StarGuardiansCharm",
+      "TFT3_SparringGloves": "TFT3_HandOfJustice"
+    }
+  },
+  {
+    "id": "TFT3_ChainVest",
+    "name": "Chain Vest",
+    "combination": {
+      "TFT3_BFSword": "TFT3_GuardianAngel",
+      "TFT3_RecurceBow": "TFT3_TitansResolve",
+      "TFT3_NeedlesslyLargeRod": "TFT3_LocketoftheIronSolari",
+      "TFT3_TearoftheGoddess": "TFT3_FrozenHeart",
+      "TFT3_ChainVest": "TFT3_BrambleVest",
+      "TFT3_NegatronCloak": "TFT3_SwordBreaker",
+      "TFT3_GiantsBelt": "TFT3_RedBuff",
+      "TFT3_Spatule": "TFT3_RebelMedal",
+      "TFT3_SparringGloves": "TFT3_ShroudofStillness"
+    }
+  },
+  {
+    "id": "TFT3_NegatronCloak",
+    "name": "Negatron Cloak",
+    "combination": {
+      "TFT3_BFSword": "TFT3_Bloodthirster",
+      "TFT3_RecurceBow": "TFT3_RunaansHurricane",
+      "TFT3_NeedlesslyLargeRod": "TFT3_IonicSpark",
+      "TFT3_TearoftheGoddess": "TFT3_ChaliceofFavor",
+      "TFT3_ChainVest": "TFT3_SwordBreaker",
+      "TFT3_NegatronCloak": "TFT3_DragonsClaw",
+      "TFT3_GiantsBelt": "TFT3_Zephyr",
+      "TFT3_Spatule": "TFT3_CelestialOrb",
+      "TFT3_SparringGloves": "TFT3_Quicksilver"
+    }
+  },
+  {
+    "id": "TFT3_GiantsBelt",
+    "name": "Giant's Belt",
+    "combination": {
+      "TFT3_BFSword": "TFT3_ZekesHerald",
+      "TFT3_RecurceBow": "TFT3_ZzRotPortal",
+      "TFT3_NeedlesslyLargeRod": "TFT3_Morellonomicon",
+      "TFT3_TearoftheGoddess": "TFT3_Redemption",
+      "TFT3_ChainVest": "TFT3_RedBuff",
+      "TFT3_NegatronCloak": "TFT3_Zephyr",
+      "TFT3_GiantsBelt": "TFT3_WarmogsArmor",
+      "TFT3_Spatule": "TFT3_ProtectorsChestguard",
+      "TFT3_SparringGloves": "TFT3_TrapClaw"
+    }
+  },
+  {
+    "id": "TFT3_Spatule",
+    "name": "Spatula",
+    "combination": {
+      "TFT3_BFSword": "TFT3_BladeoftheRuinedKing",
+      "TFT3_RecurceBow": "TFT3_InfiltratorsTalons",
+      "TFT3_NeedlesslyLargeRod": "TFT3_DemolitionistsCharge",
+      "TFT3_TearoftheGoddess": "TFT3_StarGuardiansCharm",
+      "TFT3_ChainVest": "TFT3_RebelMedal",
+      "TFT3_NegatronCloak": "TFT3_CelestialOrb",
+      "TFT3_GiantsBelt": "TFT3_ProtectorsChestguard",
+      "TFT3_Spatule": "TFT3_ForceofNature",
+      "TFT3_SparringGloves": "TFT3_DarkStarsHeart"
+    }
+  },
+  {
+    "id": "TFT3_SparringGloves",
+    "name": "Sparring Gloves",
+    "combination": {
+      "TFT3_BFSword": "TFT3_InfinityEdge",
+      "TFT3_RecurceBow": "TFT3_LastWhisper",
+      "TFT3_NeedlesslyLargeRod": "TFT3_JeweledGauntlet",
+      "TFT3_TearoftheGoddess": "TFT3_HandOfJustice",
+      "TFT3_ChainVest": "TFT3_ShroudofStillness",
+      "TFT3_NegatronCloak": "TFT3_Quicksilver",
+      "TFT3_GiantsBelt": "TFT3_TrapClaw",
+      "TFT3_Spatule": "TFT3_DarkStarsHeart",
+      "TFT3_SparringGloves": "TFT3_ThiefsGloves"
+    }
+  }
+]

@@ -1,8 +1,7 @@
 .mainContent {
   position: absolute;
-  top: -1.5rem;
+  top: -0.8rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   min-height: 2.75rem;
   align-content: flex-end;

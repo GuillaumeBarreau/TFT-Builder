@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../data/set3/champions/tft3_champions.js';
-import IconDelete from '../../assets/icons/icon-delete.js';
+import * as images from '../../../data/set3/champions/tft3_champions.js';
+import IconDelete from '../../../assets/icons/icon-delete';
 
 export const BoardCaseData = ({ data, onClickDeleteChampion, id }) => {
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../data/set3/items/tft3_items.js';
-import IconDelete from '../../assets/icons/icon-delete.js';
+import * as images from '../../../data/set3/items/tft3_items.js';
+import IconDelete from '../../../assets/icons/icon-delete.js';
 
 export const BoardCaseItem = ({ items, onClickDeleteItem, id }) => {
 

@@ -25,7 +25,6 @@ export const boardReducer = (state = initialState, action) => {
             };
 
         case ADD_ITEM:
-            console.log(CUR_SET.champions);
             
             return {
                 ...state,

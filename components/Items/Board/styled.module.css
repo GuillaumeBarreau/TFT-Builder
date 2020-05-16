@@ -1,0 +1,33 @@
+.mainContent_right {
+  display: flex;
+  order: 2;
+  flex-direction: column;
+}
+
+.mainContent_rightBottom {
+  display: flex;
+}
+
+.mainContent_rightTop {
+  display: flex;
+}
+
+.mainContent_left {
+  display: flex;
+  flex-direction: column;
+  order: 1;
+  margin-top: 3.25rem;
+}
+
+.mainContent_list {
+  border-radius: 4px;
+  height: 3rem;
+  width: 3rem;
+  margin-top: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.mainContent_list_image {
+  height: 100%;
+  width: 100%;
+}

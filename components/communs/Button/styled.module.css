@@ -1,13 +1,12 @@
 .mainContent {
   align-self: center;
-  background-color: rgb(208, 168, 92);
   border-width: 0;
   color: rgb(1, 1, 1);
   cursor: pointer;
   font-size: 0.8125rem;
   font-weight: bold;
   letter-spacing: 0.15em;
-  margin: 0.5rem 0.5rem;
+  margin: 0.5rem 1rem;
   position: relative;
   padding: 0.5rem 2rem;
   border-radius: 0.25rem;
@@ -21,4 +20,16 @@
   right: 0.1875rem;
   border: 0.0625rem solid white;
   border-radius: 0.25rem;
+}
+
+.primary {
+  background-color: rgb(208, 168, 92);
+}
+
+.secondary {
+  background-color: #6877b9;
+}
+
+.warn {
+  background-color: #b96874;
 }
