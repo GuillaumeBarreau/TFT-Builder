@@ -9,7 +9,7 @@ import { Traits } from './Traits';
 import { Synergies } from './Synergies';
 import { Button } from '../communs/Button';
 import { List } from './List';
-import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION, ADD_ITEM_ACTION, DELETE_ITEM_ACTION } from '../../store/actions/builder';
+import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION, ADD_ITEM_ACTION, DELETE_ITEM_ACTION, MOVE_CHAMPION_ACTION } from '../../store/actions/builder';
 import { addOrDeleteTrait } from '../../logic/traits.logic';
 import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
@@ -18,6 +18,7 @@ import { convertBoardToUrl } from '../../logic/convertBoardToUrl.logic';
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board }) => {
     const [championSelect, setChampionSelect] = useState('');
     const [itemSelect, setItemSelect] = useState('');
+    const [moveTargetId, setMoveTargetId] = useState('');
     const [menuTraitsDisplay, setMenuTraitsDisplay] = useState(false);
     const [selectedTraits, setSelectedTraits] = useState([]);
     const [traitHover, setTraitHover] = useState(null);
@@ -28,8 +29,12 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         return navigator.clipboard.writeText(`${location.protocol}//${location.host}/?deck=${query}`)
     }
 
-    const onClickSelectionChampion = (e) => {
-        setChampionSelect(e.target.id)
+    const onClickSelectionChampion = (target) => {
+        setChampionSelect(target)
+    };
+
+    const onClickSetMoveTargetId = (target) => {
+        setMoveTargetId(target)
     };
 
     const onMouseLeaveSelectionTrait = () => {
@@ -63,6 +68,10 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         setChampionSelect('');
     };
 
+    const onClickMoveChampion = (targetPosition) => {
+        dispatch(MOVE_CHAMPION_ACTION(moveTargetId, targetPosition))
+    };
+
     const onClickAddItem = (event) => {
         event.preventDefault();
         if (!itemSelect) return;
@@ -70,9 +79,9 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         dispatch(ADD_ITEM_ACTION(event.currentTarget, itemSelect))
     };
 
-    const onClickDeleteChampion = (event) => {
+    const onClickDeleteChampion = (event, target) => {
         event.stopPropagation();
-        dispatch(DELETE_CHAMPION_ACTION(event.currentTarget))
+        dispatch(DELETE_CHAMPION_ACTION(target))
     };
 
     const onClickDeleteItem = (event, item) => {
@@ -123,9 +132,11 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                         onClickDeleteChampion={onClickDeleteChampion}
                         onClickDeleteItem={onClickDeleteItem}
                         onClickAddElement={onClickAddElement}
+                        onClickMoveChampion={onClickMoveChampion}
+                        onClickSetMoveTargetId={onClickSetMoveTargetId}
                         board={board}
                         traitHover={traitHover}
-                        banana='banana'
+                        onClickSelectionChampion={onClickSelectionChampion}
                     />
                 </div>
                 <div className={style.mainContent_buttons}>
@@ -148,7 +159,6 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                         }
                     </Button>
                 </div>
-  
                 {
                     <List>
                         {list}

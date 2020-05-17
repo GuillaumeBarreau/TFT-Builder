@@ -25,7 +25,7 @@ export const Champions = ({ champions, championSelect, onClickSelectionChampion,
                                 `${selectedItem ? ` ${style.championSelected}` : ''}` +
                                 `${selectedTraitHover ? ` ${style[selectedTraitHover]}` : ''}`
                             }
-                            onClick={onClickSelectionChampion}
+                            onClick={(e) => onClickSelectionChampion(e.target.id)}
                         >
                             <img
                                 alt={champion.championId}

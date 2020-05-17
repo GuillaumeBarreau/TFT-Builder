@@ -4,13 +4,25 @@ import { BoardCaseData } from '../BoardCaseData';
 import { BoardCaseTrait } from '../BoardCaseTrait';
 import { BoardCaseItem } from '../BoardCaseItem';
 
-export const BoardCase = ({ id, data, onClickAddElement, onClickDeleteChampion, onClickDeleteItem, traitHover}) => {
-    
+export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetId, onClickAddElement, onClickDeleteChampion, onClickDeleteItem, traitHover}) => {
+
     const selectedTraitHover = (traitHover !== null)
         ? (data.traits && (data.traits.indexOf(traitHover)) !== -1) ?
             'traitSelected' :
             'traitNotSelected'
         : null;
+
+    const handleDragStart = (event) => {
+        onClickSetMoveTargetId(event.currentTarget.id);
+    };
+
+    const handleDrop = (event) => {
+        onClickMoveChampion(event.currentTarget.id)
+    }
+
+    const handleDragOver = (event) => {
+        event.preventDefault();
+    };
 
     return (
         <>
@@ -28,10 +40,13 @@ export const BoardCase = ({ id, data, onClickAddElement, onClickDeleteChampion, 
                     }
                     id={id}
                     onClick={onClickAddElement}
+                    draggable={Object.prototype.hasOwnProperty.call(data, 'name') ? true : false}
+                    onDragStart={e => handleDragStart(e)}
+                    onDragOver={e => handleDragOver(e)}
+                    onDrop={e => handleDrop(e)}
                 >
                     {
-                        // eslint-disable-next-line no-prototype-builtins
-                        data.hasOwnProperty('name') &&
+                        Object.prototype.hasOwnProperty.call(data, 'name') &&
                         <>
                             <BoardCaseTrait data={data} />
                             <BoardCaseData
@@ -40,8 +55,7 @@ export const BoardCase = ({ id, data, onClickAddElement, onClickDeleteChampion, 
                                 id={id}
                             />
                             {
-                                // eslint-disable-next-line no-prototype-builtins
-                                data.hasOwnProperty('items') && (
+                                Object.prototype.hasOwnProperty.call(data, 'items') && (
                                     <BoardCaseItem 
                                         items={data.items}
                                         onClickDeleteItem={onClickDeleteItem}
@@ -68,5 +82,8 @@ BoardCase.propTypes = {
     onClickAddElement: PropTypes.func.isRequired,
     onClickDeleteChampion: PropTypes.func.isRequired,
     onClickDeleteItem: PropTypes.func.isRequired,
+    onClickMoveChampion: PropTypes.func.isRequired,
+    onClickSetMoveTargetId: PropTypes.func.isRequired,
+    onClickSelectionChampion: PropTypes.func.isRequired,
     traitHover: PropTypes.string
 };
