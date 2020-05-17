@@ -12,12 +12,13 @@ export const BoardCaseData = ({ data, onClickDeleteChampion, id }) => {
                     <img
                         className={style.mainContent_image}
                         alt={data.name}
+                        data-champion={data.championId}
                         src={images[data.championId.toLowerCase()]}
                     />
                 }
             </div>
             <button
-                onClick={(e) => onClickDeleteChampion(e, data.championId)}
+                onClick={(e) => onClickDeleteChampion(e, e.currentTarget.id)}
                 className={style.spanContent}
                 id={`button-${id}`}
             >

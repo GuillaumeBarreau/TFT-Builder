@@ -1,23 +1,21 @@
 .mainContent {
   position: absolute;
-  top: -0.8rem;
+  top: -0.55rem;
   display: flex;
   justify-content: center;
-  min-height: 2.75rem;
   align-content: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .mainContent_item {
-  margin: 0.0625rem;
-  height: 1.25rem;
-  width: 1.25rem;
+  margin: 0.5px;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
   z-index: 100;
   background: #929292;
-}
-
-.reverse {
-  flex-wrap: wrap-reverse;
+  border: 1px solid black;
 }
 
 .mainContent_image {

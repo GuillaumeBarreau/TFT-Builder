@@ -2,7 +2,6 @@
   align-items: center;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
-  height: calc(100% - 0.4rem);
   justify-content: center;
   overflow: hidden;
   position: relative;

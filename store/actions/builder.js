@@ -1,4 +1,4 @@
-import { RESET_TRAITS, SORT_CHAMPIONS, ADD_CHAMPION, DELETE_CHAMPION, ADD_ITEM, DELETE_ITEM } from './actionsTypes';
+import { RESET_TRAITS, SORT_CHAMPIONS, ADD_CHAMPION, DELETE_CHAMPION, ADD_ITEM, DELETE_ITEM, MOVE_CHAMPION } from './actionsTypes';
 
 export const RESET_TRAITS_ACTION = () => ({ 
     type: RESET_TRAITS
@@ -13,6 +13,12 @@ export const ADD_CHAMPION_ACTION = (target, championSelect) => ({
     type: ADD_CHAMPION,
     value: championSelect,
     target: target
+});
+
+export const MOVE_CHAMPION_ACTION = (initPosition, targetPosition, ) => ({ 
+    type: MOVE_CHAMPION,
+    initPosition: initPosition,
+    targetPosition: targetPosition
 });
 
 export const DELETE_CHAMPION_ACTION = (target) => ({ 

@@ -4,3 +4,4 @@ export const ADD_CHAMPION = 'ADD_CHAMPION';
 export const DELETE_CHAMPION = 'DELETE_CHAMPION';
 export const ADD_ITEM = 'ADD_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const MOVE_CHAMPION = 'MOVE_CHAMPION';
