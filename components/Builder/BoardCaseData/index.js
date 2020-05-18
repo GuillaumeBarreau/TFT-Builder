@@ -22,7 +22,7 @@ export const BoardCaseData = ({ data, onClickDeleteChampion, id }) => {
                 className={style.spanContent}
                 id={`button-${id}`}
             >
-                <IconDelete color='#c1709f'></IconDelete>
+                <IconDelete color='#952a2a'></IconDelete>
             </button>
         </>
     );

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const IconDelete = (color) => {
+const IconDelete = ({color}) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

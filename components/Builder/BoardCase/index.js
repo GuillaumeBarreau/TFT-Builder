@@ -4,7 +4,7 @@ import { BoardCaseData } from '../BoardCaseData';
 import { BoardCaseTrait } from '../BoardCaseTrait';
 import { BoardCaseItem } from '../BoardCaseItem';
 
-export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetId, onClickAddElement, onClickDeleteChampion, onClickDeleteItem, traitHover}) => {
+export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetId, onClickAddElement, onClickDeleteChampion, onClickDeleteItem, traitHover, onClickChangeActionUser, actionUser}) => {
 
     const selectedTraitHover = (traitHover !== null)
         ? (data.traits && (data.traits.indexOf(traitHover)) !== -1) ?
@@ -13,11 +13,13 @@ export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetI
         : null;
 
     const handleDragStart = (event) => {
+        event.stopPropagation();
+        onClickChangeActionUser('move');
         onClickSetMoveTargetId(event.currentTarget.id);
     };
 
     const handleDrop = (event) => {
-        onClickMoveChampion(event.currentTarget.id)
+        (actionUser === 'move') ? onClickMoveChampion(event.currentTarget.id) : onClickAddElement(event)
     }
 
     const handleDragOver = (event) => {
@@ -39,7 +41,6 @@ export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetI
                         `${style.mainContent_list}` 
                     }
                     id={id}
-                    onClick={onClickAddElement}
                     draggable={Object.prototype.hasOwnProperty.call(data, 'name') ? true : false}
                     onDragStart={e => handleDragStart(e)}
                     onDragOver={e => handleDragOver(e)}
@@ -85,5 +86,7 @@ BoardCase.propTypes = {
     onClickMoveChampion: PropTypes.func.isRequired,
     onClickSetMoveTargetId: PropTypes.func.isRequired,
     onClickSelectionChampion: PropTypes.func.isRequired,
+    onClickChangeActionUser: PropTypes.func.isRequired,
+    actionUser: PropTypes.string,
     traitHover: PropTypes.string
 };

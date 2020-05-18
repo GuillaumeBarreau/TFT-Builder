@@ -1,4 +1,4 @@
-import { ConcatMultidimensionalArray } from './ConcatMultidimensionalArray.logic';
+import { concatMultidimensionalArray } from './arrayProcessing/concatMultidimensionalArray.logic';
 
 export const renderSynergies = (championsList, traits, board) => {
 
@@ -18,7 +18,7 @@ export const renderSynergies = (championsList, traits, board) => {
     
     const getOnlyChampionsTraits = noDuplicate.map(data => data && data.traits);
 
-    const concatChampionsTraits = ConcatMultidimensionalArray(getOnlyChampionsTraits);
+    const concatChampionsTraits = concatMultidimensionalArray(getOnlyChampionsTraits);
 
     const synergies = {};
 
