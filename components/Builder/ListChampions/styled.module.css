@@ -4,7 +4,6 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  min-height: 5.5%;
   min-width: 5.5%;
   width: 5.5%;
 }
@@ -76,9 +75,9 @@
   outline-color: rgb(230, 178, 37);
 }
 
-.itemContent * {
+/* .itemContent * {
   pointer-events: none;
-}
+} */
 
 .traitNotSelected img {
   filter: grayscale(1);

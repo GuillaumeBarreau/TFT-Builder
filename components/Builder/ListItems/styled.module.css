@@ -37,7 +37,3 @@
   outline-width: thick;
   outline-color: rgb(208, 168, 92);
 }
-
-.itemContent * {
-  pointer-events: none;
-}

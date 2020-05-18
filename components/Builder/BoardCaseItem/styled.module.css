@@ -2,6 +2,7 @@
   position: absolute;
   display: flex;
   bottom: -0.125rem;
+  pointer-events: all;
 }
 
 .mainContent_item {

@@ -16,6 +16,7 @@ import { countChampion } from '../../logic/champion.logic';
 import { convertBoardToUrl } from '../../logic/convertBoardToUrl.logic';
 
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board }) => {
+    const [actionUser, setActionUser] = useState('');
     const [championSelect, setChampionSelect] = useState('');
     const [itemSelect, setItemSelect] = useState('');
     const [moveTargetId, setMoveTargetId] = useState('');
@@ -28,6 +29,10 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         const query = convertBoardToUrl(board);
         return navigator.clipboard.writeText(`${location.protocol}//${location.host}/?deck=${query}`)
     }
+
+    const onClickChangeActionUser = (action) => {
+        setActionUser(action)
+    };
 
     const onClickSelectionChampion = (target) => {
         setChampionSelect(target)
@@ -45,8 +50,8 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         setTraitHover(trait)
     };
 
-    const onClickSelectionItem = (e) => {
-        setItemSelect(e.target.id)
+    const onClickSelectionItem = (itemId) => {
+        setItemSelect(itemId)
     };
 
     const onClickResetTraits = () => {
@@ -99,6 +104,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                 onClickSelectionChampion={onClickSelectionChampion}
                 championSelect={championSelect}
                 traitHover={traitHover}
+                onClickChangeActionUser={onClickChangeActionUser}
             />
         )
         : (
@@ -106,6 +112,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                 items={items}
                 itemSelect={itemSelect}
                 onClickSelectionItem={onClickSelectionItem}
+                onClickChangeActionUser={onClickChangeActionUser}
             />
         )
 
@@ -137,6 +144,8 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                         board={board}
                         traitHover={traitHover}
                         onClickSelectionChampion={onClickSelectionChampion}
+                        actionUser={actionUser}
+                        onClickChangeActionUser={onClickChangeActionUser}
                     />
                 </div>
                 <div className={style.mainContent_buttons}>

@@ -1,5 +1,5 @@
 import { RESET_TRAITS, SORT_CHAMPIONS } from '../actions/actionsTypes';
-import { ConcatMultidimensionalArray } from '../../logic/ConcatMultidimensionalArray.logic';
+import { concatMultidimensionalArray } from '../../logic/arrayProcessing/concatMultidimensionalArray.logic';
 import { CUR_SET } from './data/sets';
 
 const initialState = {
@@ -28,7 +28,7 @@ export const filterReducer = (state = initialState, action) => {
             })
             
             const initChampionsFilter = (traits.length)
-                ? [... new Set(ConcatMultidimensionalArray(championsSort))]
+                ? [... new Set(concatMultidimensionalArray(championsSort))]
                 : CUR_SET.champions;
 
             return {
