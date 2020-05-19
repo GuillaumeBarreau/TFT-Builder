@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  dev:
+    container_name: TFT-Builder
+    build:
+      context: .
+      dockerfile: ./dockerFiles/dev/Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=dev
+
+  build:
+    container_name: TFT-Builder-production
+    build:
+      context: .
+      dockerfile: ./dockerFiles/build/Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '3002:80'
+    environment:
+      - NODE_ENV=production
