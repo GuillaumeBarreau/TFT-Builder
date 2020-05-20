@@ -6,6 +6,13 @@
   display: flex;
 }
 
+@media screen and (min-width: 90rem) {
+  .mainContent {
+    height: 6.225rem;
+    width: 5.625rem;
+  }
+}
+
 .mainContent_list {
   position: absolute;
   top: 0;

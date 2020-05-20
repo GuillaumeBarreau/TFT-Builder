@@ -15,6 +15,13 @@
   width: 1.25rem;
 }
 
+@media screen and (min-width: 90rem) {
+  .mainContent_item {
+    height: 1.5625rem;
+    width: 1.5625rem;
+  }
+}
+
 .mainContent_image {
   height: 100%;
   width: 100%;
