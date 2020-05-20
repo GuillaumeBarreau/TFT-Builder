@@ -1,35 +1,37 @@
 .mainContent {
-  align-self: center;
-  border-width: 0;
-  color: rgb(1, 1, 1);
-  cursor: pointer;
-  font-size: 0.8125rem;
-  font-weight: bold;
-  letter-spacing: 0.15em;
   margin: 0.5rem 1rem;
-  position: relative;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 0;
   padding: 0.5rem 2rem;
-  border-radius: 0.25rem;
+  color: #f0efef;
+  font-size: 1.125rem;
+  font-weight: 400;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 1.6px;
 }
 
-.mainContent_Border {
-  position: absolute;
-  top: -0.1875rem;
-  bottom: 0.1875rem;
-  left: -0.1875rem;
-  right: 0.1875rem;
-  border: 0.0625rem solid white;
-  border-radius: 0.25rem;
-}
 
 .primary {
-  background-color: rgb(208, 168, 92);
+  background: #1e2328;
+  border-color: #4f819e;
 }
 
-.secondary {
-  background-color: #6877b9;
+.primary:hover {
+  background-color: #4f819e;
 }
 
 .warn {
-  background-color: #b96874;
+  background: #1e2328;
+  border-color: #9e3e3e;
 }
+
+.warn:hover {
+  background-color: #9e3e3e;
+} 
+
+.warn:active {
+  border-color: #792020;
+  background-color: #792020;
+} 

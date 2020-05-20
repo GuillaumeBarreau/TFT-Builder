@@ -15,6 +15,13 @@
   cursor: pointer;
 }
 
+@media screen and (min-width: 90rem) {
+  .mainContent_image {
+    height: 5.375rem;
+    width: 4.875rem;
+  }
+}
+
 .spanContent {
   border-radius: 50%;
   background: white;

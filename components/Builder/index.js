@@ -9,7 +9,7 @@ import { Traits } from './Traits';
 import { Synergies } from './Synergies';
 import { Button } from '../communs/Button';
 import { List } from './List';
-import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION, ADD_ITEM_ACTION, DELETE_ITEM_ACTION, MOVE_CHAMPION_ACTION } from '../../store/actions/builder';
+import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION, ADD_ITEM_ACTION, DELETE_ITEM_ACTION, MOVE_CHAMPION_ACTION, CLEAR_BOARD_ACTION } from '../../store/actions/builder';
 import { addOrDeleteTrait } from '../../logic/traits.logic';
 import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
@@ -94,6 +94,10 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         dispatch(DELETE_ITEM_ACTION(event.currentTarget, item))
     };
 
+    const onClickClearboard = () => {
+        dispatch(CLEAR_BOARD_ACTION())
+    };
+
     const synergies = renderSynergies(champions, traits, board);
     const onClickAddElement = listSwap ? onClickAddItem : onClickAddChampion;
 
@@ -167,6 +171,13 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                             listSwap ? 'Champions' : 'Items'
                         }
                     </Button>
+                    {
+                        countChampion(board) && (
+                            <Button color="warn" onClick={() => onClickClearboard()}>
+                                Clear
+                            </Button>
+                        )
+                    }
                 </div>
                 {
                     <List>

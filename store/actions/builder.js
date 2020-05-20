@@ -1,4 +1,4 @@
-import { RESET_TRAITS, SORT_CHAMPIONS, ADD_CHAMPION, DELETE_CHAMPION, ADD_ITEM, DELETE_ITEM, MOVE_CHAMPION } from './actionsTypes';
+import { RESET_TRAITS, SORT_CHAMPIONS, ADD_CHAMPION, DELETE_CHAMPION, ADD_ITEM, DELETE_ITEM, MOVE_CHAMPION, CLEAR_BOARD } from './actionsTypes';
 
 export const RESET_TRAITS_ACTION = () => ({ 
     type: RESET_TRAITS
@@ -36,4 +36,8 @@ export const DELETE_ITEM_ACTION = (target, value) => ({
     type: DELETE_ITEM,
     target: target,
     value: value
+});
+
+export const CLEAR_BOARD_ACTION = () => ({
+    type: CLEAR_BOARD,
 });

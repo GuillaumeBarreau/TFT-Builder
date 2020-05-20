@@ -3,7 +3,7 @@ import style from './styled.module.css';
 import * as images from '../../../data/set3/traits/tft3_traits.js';
 import { Button } from '../../communs/Button';
 
-export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, selectedTraits, onMouseEnterSelectionTrait, onMouseLeaveSelectionTrait  }) => {
+export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, selectedTraits, onMouseEnterSelectionTrait, onClickDisplayTraits,  onMouseLeaveSelectionTrait  }) => {
 
     return (
         <div className={style.background}>
@@ -38,7 +38,8 @@ export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, sele
                         </li>
                     ))
                 }
-                <Button onClick={onClickResetTraits}>Reset</Button>
+                <Button onClick={onClickDisplayTraits}>Close</Button>
+                <Button color="warn" onClick={onClickResetTraits}>Reset</Button>
             </ul>
         </div>
     )
@@ -62,6 +63,7 @@ Traits.propTypes = {
     ).isRequired,
     onClickSelectionTrait: PropTypes.func.isRequired,
     onClickResetTraits: PropTypes.func.isRequired,
+    onClickDisplayTraits: PropTypes.func.isRequired,
     selectedTraits: PropTypes.arrayOf(PropTypes.string).isRequired,
     onMouseEnterSelectionTrait: PropTypes.func.isRequired,
     onMouseLeaveSelectionTrait: PropTypes.func.isRequired,
