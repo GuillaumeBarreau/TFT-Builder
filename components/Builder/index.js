@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
@@ -24,6 +24,14 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const [selectedTraits, setSelectedTraits] = useState([]);
     const [traitHover, setTraitHover] = useState(null);
     const [listSwap, setListSwap] = useState(false);
+
+    const endpoint = 'http://localhost:4040/api';
+
+    useEffect(() => {
+        axios.get(`${endpoint}/comps`).then(res => {
+            console.log("RES : ", res);
+        });
+    }, []);
 
     const setCopyUrl = () => {
         const query = convertBoardToUrl(board);
