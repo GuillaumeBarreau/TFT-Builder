@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import style from './styled.module.css';
 import { Board } from './Board';
 import { Champions } from './ListChampions';
