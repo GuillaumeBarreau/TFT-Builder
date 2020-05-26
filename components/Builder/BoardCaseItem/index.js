@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../../data/set3/items/tft3_items.js';
 import IconDelete from '../../../assets/icons/icon-delete.js';
 
-export const BoardCaseItem = ({ items, onClickDeleteItem, id }) => {
+export const BoardCaseItem = ({ items, onClickDeleteItem, id, imagesItems }) => {
 
     return (
         <ul className={style.mainContent}>
@@ -19,7 +18,7 @@ export const BoardCaseItem = ({ items, onClickDeleteItem, id }) => {
                         >
                             <img
                                 className={style.mainContent_image}
-                                src={images[item]}
+                                src={imagesItems[item]}
                             />
                             <IconDelete color='#c1709f' />
                         </li>
@@ -32,6 +31,7 @@ export const BoardCaseItem = ({ items, onClickDeleteItem, id }) => {
 
 BoardCaseItem.propTypes = {
     id: PropTypes.string.isRequired,
+    imagesItems: PropTypes.object.isRequired,
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
     onClickDeleteItem: PropTypes.func.isRequired
 };

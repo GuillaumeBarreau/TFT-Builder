@@ -4,6 +4,7 @@ import { championsReducer } from './champions.reducer';
 import { filterReducer } from './filter.reducer';
 import { boardReducer } from './board.reducer';
 import { traitsReducer } from './traits.reducer';
+import { imagesReducer } from './images.reducer';
 
 const STORE = {
     items: itemsReducer,
@@ -11,6 +12,7 @@ const STORE = {
     board: boardReducer,
     champions: championsReducer,
     traits: traitsReducer,
+    images: imagesReducer,
 };
 
 const reducers = combineReducers(

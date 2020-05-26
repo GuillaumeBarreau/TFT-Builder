@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../../data/set3/items/tft3_items.js';
 
-export const Items = ({ items, onClickSelectionItem, onClickChangeActionUser }) => {
+export const Items = ({ items, onClickSelectionItem, onClickChangeActionUser, imagesItems }) => {
     
     const handleDragStart = (event) => {
         onClickChangeActionUser('add');
@@ -27,7 +26,7 @@ export const Items = ({ items, onClickSelectionItem, onClickChangeActionUser }) 
                                 onDragStart={e => handleDragStart(e)}
                                 data-item={item.id}
                                 alt={item.name}
-                                src={images[item.id]}
+                                src={imagesItems[item.id]}
                                 className={style.itemContent_image}
                             />
                             <p className={style.itemContent_txt}>{item.name}</p>
@@ -46,5 +45,6 @@ Items.propTypes = {
             name: PropTypes.string
         })).isRequired,
     onClickSelectionItem: PropTypes.func.isRequired,
+    imagesItems: PropTypes.object.isRequired,
     onClickChangeActionUser: PropTypes.func.isRequired
 };

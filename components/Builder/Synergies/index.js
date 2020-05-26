@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../../data/set3/traits/tft3_traits.js';
 
-export const Synergies = ({ synergies, onMouseLeaveSelectionTrait, onMouseEnterSelectionTrait }) => {
+export const Synergies = ({ synergies, onMouseLeaveSelectionTrait, onMouseEnterSelectionTrait, imagesTraits }) => {
     
     return (
         <ul className={style.mainContent}>
@@ -65,7 +64,7 @@ export const Synergies = ({ synergies, onMouseLeaveSelectionTrait, onMouseEnterS
                                 </ul>
                                 <img
                                     className={style.mainContent_itemImage}
-                                    src={images[synergies[synergy].key.toLowerCase()]}
+                                    src={imagesTraits[synergies[synergy].key.toLowerCase()]}
                                 />
                             </div>
                         </li>
@@ -79,6 +78,7 @@ export const Synergies = ({ synergies, onMouseLeaveSelectionTrait, onMouseEnterS
 
 Synergies.propTypes = {
     synergies: PropTypes.object.isRequired,
+    imagesTraits: PropTypes.object.isRequired,
     onMouseLeaveSelectionTrait: PropTypes.func.isRequired,
     onMouseEnterSelectionTrait: PropTypes.func.isRequired,
 };

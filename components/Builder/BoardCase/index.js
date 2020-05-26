@@ -4,7 +4,7 @@ import { BoardCaseData } from '../BoardCaseData';
 import { BoardCaseTrait } from '../BoardCaseTrait';
 import { BoardCaseItem } from '../BoardCaseItem';
 
-export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetId, onClickAddElement, onClickDeleteChampion, onClickDeleteItem, traitHover, onClickChangeActionUser, actionUser}) => {
+export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetId, onClickAddElement, onClickDeleteChampion, onClickDeleteItem, traitHover, onClickChangeActionUser, actionUser, images}) => {
 
     const selectedTraitHover = (traitHover !== null)
         ? (data.traits && (data.traits.indexOf(traitHover)) !== -1) ?
@@ -49,11 +49,15 @@ export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetI
                     {
                         Object.prototype.hasOwnProperty.call(data, 'name') &&
                         <>
-                            <BoardCaseTrait data={data} />
+                            <BoardCaseTrait 
+                                data={data}
+                                imagesTraits={images.traits}
+                            />
                             <BoardCaseData
                                 data={data}
                                 onClickDeleteChampion={onClickDeleteChampion}
                                 id={id}
+                                imagesChampions={images.champions}
                             />
                             {
                                 Object.prototype.hasOwnProperty.call(data, 'items') && (
@@ -61,6 +65,7 @@ export const BoardCase = ({ id, data, onClickMoveChampion, onClickSetMoveTargetI
                                         items={data.items}
                                         onClickDeleteItem={onClickDeleteItem}
                                         id={id}
+                                        imagesItems={images.items}
                                     />
                                 )
                             }
@@ -80,6 +85,7 @@ BoardCase.defaultProps = {
 BoardCase.propTypes = {
     id: PropTypes.string.isRequired,
     data: PropTypes.object.isRequired,
+    images: PropTypes.object.isRequired,
     onClickAddElement: PropTypes.func.isRequired,
     onClickDeleteChampion: PropTypes.func.isRequired,
     onClickDeleteItem: PropTypes.func.isRequired,

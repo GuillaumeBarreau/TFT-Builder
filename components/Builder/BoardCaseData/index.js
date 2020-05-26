@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../../data/set3/champions/tft3_champions.js';
 import IconDelete from '../../../assets/icons/icon-delete';
 
-export const BoardCaseData = ({ data, onClickDeleteChampion, id }) => {
+export const BoardCaseData = ({ data, onClickDeleteChampion, id, imagesChampions }) => {
 
     return (
         <>
@@ -13,7 +12,7 @@ export const BoardCaseData = ({ data, onClickDeleteChampion, id }) => {
                         className={style.mainContent_image}
                         alt={data.name}
                         data-champion={data.championId}
-                        src={images[data.championId.toLowerCase()]}
+                        src={imagesChampions[data.championId.toLowerCase()]}
                     />
                 }
             </div>
@@ -30,6 +29,7 @@ export const BoardCaseData = ({ data, onClickDeleteChampion, id }) => {
 
 BoardCaseData.propTypes = {
     id: PropTypes.string.isRequired,
+    imagesChampions: PropTypes.object.isRequired,
     data: PropTypes.shape({
         championId: PropTypes.string.isRequired,
         cost: PropTypes.number.isRequired,
