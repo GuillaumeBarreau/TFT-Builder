@@ -16,6 +16,7 @@ import { addOrDeleteTrait } from '../../logic/traits.logic';
 import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
 import { convertBoardToUrl, convertUrlToObject } from '../../logic/convertBoardToUrl.logic';
+import copy from 'copy-to-clipboard';
 
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board, images }) => {
     const [actionUser, setActionUser] = useState('');
@@ -45,7 +46,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         axios.post(`${endpoint}/comps`, {
             data: convertBoardToUrl(board),
         }).then(res => {
-            return navigator.clipboard.writeText(`${location.protocol}//${location.host}/?deck=${res.data._id}`)
+            copy(`${location.protocol}//${location.host}/?deck=${res.data._id}`);
         });
     }
 
