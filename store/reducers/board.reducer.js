@@ -1,4 +1,4 @@
-import { ADD_CHAMPION, DELETE_CHAMPION, ADD_ITEM, DELETE_ITEM, MOVE_CHAMPION, CLEAR_BOARD } from '../actions/actionsTypes';
+import { ADD_CHAMPION, DELETE_CHAMPION, ADD_ITEM, DELETE_ITEM, MOVE_CHAMPION, CLEAR_BOARD, SHARE_BOARD } from '../actions/actionsTypes';
 import { addChampion, deleteChampion, moveChampion } from '../../logic/champion.logic';
 import { addItem, deleteItem } from '../../logic/item.logic';
 import { CUR_SET } from './data/sets';
@@ -43,6 +43,13 @@ export const boardReducer = (state = initialState, action) => {
                 ]
             };
 
+        case SHARE_BOARD:
+            
+            return {
+                ...state,
+                data: action.board
+            };
+
         case ADD_ITEM:
             
             return {
@@ -56,6 +63,7 @@ export const boardReducer = (state = initialState, action) => {
                 ...state,
                 data: deleteItem([...state.data], action.target, CUR_SET.items)
             }
+
         case DELETE_CHAMPION:
             
             return {

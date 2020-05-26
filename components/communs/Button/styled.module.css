@@ -18,6 +18,15 @@
   border-color: #4f819e;
 }
 
+.green {
+  background: #1e2328;
+  border-color: #4f9e56;
+}
+
+.green:hover {
+  background: #4f9e56;
+}
+
 .primary:hover {
   background-color: #4f819e;
 }
