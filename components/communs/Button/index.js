@@ -25,6 +25,6 @@ Button.defaultProps = {
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
-    color: PropTypes.oneOf(['primary', 'secondary', 'warn']),
+    color: PropTypes.oneOf(['primary', 'secondary', 'warn', 'green']),
     onClick: PropTypes.func.isRequired,
 };

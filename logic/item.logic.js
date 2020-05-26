@@ -108,7 +108,10 @@ export const deleteItem = (board, target, items) => {
     return board;
 };
 
-
+/**
+ * Récupére les items qui ont la propriété synergy dans les datas.
+ * @param {string} items - items Data.
+ */
 const getSynergiesItems = (items) => {
     const synergies = {};
 

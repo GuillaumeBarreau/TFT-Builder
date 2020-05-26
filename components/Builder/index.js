@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/router'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -10,11 +11,11 @@ import { Traits } from './Traits';
 import { Synergies } from './Synergies';
 import { Button } from '../communs/Button';
 import { List } from './List';
-import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION, ADD_ITEM_ACTION, DELETE_ITEM_ACTION, MOVE_CHAMPION_ACTION, CLEAR_BOARD_ACTION } from '../../store/actions/builder';
+import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION, ADD_ITEM_ACTION, DELETE_ITEM_ACTION, MOVE_CHAMPION_ACTION, CLEAR_BOARD_ACTION, SHARE_BOARD_ACTION } from '../../store/actions/builder';
 import { addOrDeleteTrait } from '../../logic/traits.logic';
 import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
-import { convertBoardToUrl } from '../../logic/convertBoardToUrl.logic';
+import { convertBoardToUrl, convertUrlToObject } from '../../logic/convertBoardToUrl.logic';
 
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board, images }) => {
     const [actionUser, setActionUser] = useState('');
@@ -25,18 +26,27 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const [selectedTraits, setSelectedTraits] = useState([]);
     const [traitHover, setTraitHover] = useState(null);
     const [listSwap, setListSwap] = useState(false);
+    const router = useRouter()
 
     const endpoint = 'http://localhost:4040/api';
 
     useEffect(() => {
-        axios.get(`${endpoint}/comps`).then(res => {
-            console.log("RES : ", res);
-        });
+        if (router.query.deck) {
+            axios.get(`${endpoint}/comps/${router.query.deck}`).then(res => {
+                if (res.data._id) {
+                    const convertData = convertUrlToObject(res.data.data);
+                    dispatch(SHARE_BOARD_ACTION(convertData));
+                }
+            });
+        }
     }, []);
-
-    const setCopyUrl = () => {
-        const query = convertBoardToUrl(board);
-        return navigator.clipboard.writeText(`${location.protocol}//${location.host}/?deck=${query}`)
+    
+    const postDataBoard = () => {
+        axios.post(`${endpoint}/comps`, {
+            data: convertBoardToUrl(board),
+        }).then(res => {
+            return navigator.clipboard.writeText(`${location.protocol}//${location.host}/?deck=${res.data._id}`)
+        });
     }
 
     const onClickChangeActionUser = (action) => {
@@ -174,11 +184,6 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                             }
                         </Button>
                     }
-                    {
-                        /* <Button onClick={setCopyUrl}>
-                         Share
-                        </Button> */
-                    }
                     <Button onClick={() => setListSwap(!listSwap)}>
                         {
                             listSwap ? 'Champions' : 'Items'
@@ -186,9 +191,14 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                     </Button>
                     {
                         countChampion(board) && (
-                            <Button color="warn" onClick={() => onClickClearboard()}>
-                                Clear
-                            </Button>
+                            <>
+                                <Button color="warn" onClick={() => onClickClearboard()}>
+                                    Clear
+                                </Button>
+                                <Button color="green" onClick={postDataBoard}>
+                                    Save
+                                </Button>
+                            </>
                         )
                     }
                 </div>
