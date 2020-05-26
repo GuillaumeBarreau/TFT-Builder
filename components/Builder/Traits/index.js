@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../../data/set3/traits/tft3_traits.js';
 import { Button } from '../../communs/Button';
 
-export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, selectedTraits, onMouseEnterSelectionTrait, onClickDisplayTraits,  onMouseLeaveSelectionTrait  }) => {
+export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, selectedTraits, onMouseEnterSelectionTrait, onClickDisplayTraits, onMouseLeaveSelectionTrait, imagesTraits  }) => {
 
     return (
         <div className={style.background}>
@@ -27,7 +26,7 @@ export const Traits = ({ traits, onClickSelectionTrait, onClickResetTraits, sele
                                 <img
                                     alt={trait.name}
                                     className={style.mainContent_image}
-                                    src={images[trait.key.toLowerCase()]}
+                                    src={imagesTraits[trait.key.toLowerCase()]}
                                 />
                                 <p className={style.mainContent_txt}>
                                     {
@@ -62,6 +61,7 @@ Traits.propTypes = {
         })
     ).isRequired,
     onClickSelectionTrait: PropTypes.func.isRequired,
+    imagesTraits: PropTypes.object.isRequired,
     onClickResetTraits: PropTypes.func.isRequired,
     onClickDisplayTraits: PropTypes.func.isRequired,
     selectedTraits: PropTypes.arrayOf(PropTypes.string).isRequired,

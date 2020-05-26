@@ -16,7 +16,7 @@ import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
 import { convertBoardToUrl } from '../../logic/convertBoardToUrl.logic';
 
-export const Builder = ({ dispatch, champions, items, championsFilter, traits, board }) => {
+export const Builder = ({ dispatch, champions, items, championsFilter, traits, board, images }) => {
     const [actionUser, setActionUser] = useState('');
     const [championSelect, setChampionSelect] = useState('');
     const [itemSelect, setItemSelect] = useState('');
@@ -118,6 +118,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                 championSelect={championSelect}
                 traitHover={traitHover}
                 onClickChangeActionUser={onClickChangeActionUser}
+                imagesChampions={images.champions}
             />
         )
         : (
@@ -126,6 +127,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                 itemSelect={itemSelect}
                 onClickSelectionItem={onClickSelectionItem}
                 onClickChangeActionUser={onClickChangeActionUser}
+                imagesItems={images.items}
             />
         )
 
@@ -142,6 +144,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                             onClickDisplayTraits={() => setMenuTraitsDisplay(!menuTraitsDisplay)}
                             onMouseLeaveSelectionTrait={onMouseLeaveSelectionTrait}
                             onMouseEnterSelectionTrait={onMouseEnterSelectionTrait}
+                            imagesTraits={images.traits}
                         />
                     )
                 }
@@ -155,6 +158,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                         onClickMoveChampion={onClickMoveChampion}
                         onClickSetMoveTargetId={onClickSetMoveTargetId}
                         board={board}
+                        images={images}
                         traitHover={traitHover}
                         onClickSelectionChampion={onClickSelectionChampion}
                         actionUser={actionUser}
@@ -201,6 +205,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                             synergies={synergies}
                             onMouseEnterSelectionTrait={onMouseEnterSelectionTrait}
                             onMouseLeaveSelectionTrait={onMouseLeaveSelectionTrait}
+                            imagesTraits={images.traits}
                         />
                     )
                 }
@@ -261,6 +266,7 @@ const mapStateToProps = state => {
         traits: state.traits.data,
         board: state.board.data,
         items: state.items.data,
+        images: state.images.data,
     };
 };
 

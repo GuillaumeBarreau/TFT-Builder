@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../../data/set3/items/tft3_items.js';
+import * as images from '../../../data/set3/items/items.js';
 import { log } from 'util';
 
 export const Board = ({ data }) => (

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../../data/set3/champions/tft3_champions.js';
 
-export const Champions = ({ champions, onClickSelectionChampion, traitHover, onClickChangeActionUser}) => {
+export const Champions = ({ champions, onClickSelectionChampion, traitHover, onClickChangeActionUser, imagesChampions}) => {
 
     const handleDragStart = (event) => {
         onClickChangeActionUser('add');
@@ -34,7 +33,7 @@ export const Champions = ({ champions, onClickSelectionChampion, traitHover, onC
                                 onDragStart={e => handleDragStart(e)}
                                 data-champion={champion.championId}
                                 alt={champion.championId}
-                                src={images[champion.championId.toLowerCase()]}
+                                src={imagesChampions[champion.championId.toLowerCase()]}
                                 className={
                                     `${style.itemContent_image}` +
                                     ` ${style[`itemContent_imageBorderCost-0${champion.cost}`]}`
@@ -65,6 +64,7 @@ Champions.propTypes = {
         })
     ).isRequired, 
     onClickSelectionChampion: PropTypes.func.isRequired,
+    imagesChampions: PropTypes.object.isRequired,
     onClickChangeActionUser: PropTypes.func.isRequired,
     traitHover: PropTypes.string,
 };

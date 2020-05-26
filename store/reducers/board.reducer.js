@@ -47,14 +47,14 @@ export const boardReducer = (state = initialState, action) => {
             
             return {
                 ...state,
-                data: addItem([...state.data], action.target, action.value)
+                data: addItem([...state.data], action.target, action.value, CUR_SET.items)
             }
 
         case DELETE_ITEM:
             
             return {
                 ...state,
-                data: deleteItem([...state.data], action.target)
+                data: deleteItem([...state.data], action.target, CUR_SET.items)
             }
         case DELETE_CHAMPION:
             

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import style from './styled.module.css';
-import * as images from '../../../data/set3/traits/tft3_traits.js';
 
-export const BoardCaseTrait = ({data}) => {
+export const BoardCaseTrait = ({ data, imagesTraits }) => {
         
     return (
         <ul 
@@ -18,7 +17,7 @@ export const BoardCaseTrait = ({data}) => {
                         <li className={style.mainContent_item} key={trait}>
                             <img 
                                 className={style.mainContent_image} 
-                                src={images[trait.toLowerCase()]}
+                                src={imagesTraits[trait.toLowerCase()]}
                             />
                         </li>
                     )
@@ -29,6 +28,7 @@ export const BoardCaseTrait = ({data}) => {
 };
 
 BoardCaseTrait.propTypes = {
+    imagesTraits: PropTypes.object.isRequired,
     data: PropTypes.shape({
         traits: PropTypes.arrayOf(PropTypes.string)
     }).isRequired,
