@@ -41,5 +41,5 @@ export const SET_03_MT = {
 };
 
 export const CUR_SET = {
-    ...SET_03,
+    ...SET_03_MT,
 };

@@ -43,7 +43,7 @@
       "TFT3_ChainVest": "TFT3_LocketoftheIronSolari",
       "TFT3_NegatronCloak": "TFT3_IonicSpark",
       "TFT3_GiantsBelt": "TFT3_Morellonomicon",
-      "TFT3_Spatule": "TFT3_DemolitionistsCharge",
+      "TFT3_Spatule": "TFT3_BattlecastArmore",
       "TFT3_SparringGloves": "TFT3_JeweledGauntlet"
     }
   },
@@ -118,7 +118,7 @@
     "combination": {
       "TFT3_BFSword": "TFT3_BladeoftheRuinedKing",
       "TFT3_RecurceBow": "TFT3_InfiltratorsTalons",
-      "TFT3_NeedlesslyLargeRod": "TFT3_DemolitionistsCharge",
+      "TFT3_NeedlesslyLargeRod": "TFT3_BattlecastArmore",
       "TFT3_TearoftheGoddess": "TFT3_StarGuardiansCharm",
       "TFT3_ChainVest": "TFT3_RebelMedal",
       "TFT3_NegatronCloak": "TFT3_CelestialOrb",
@@ -256,10 +256,10 @@
     "slot": 1
   },
   {
-    "id": "TFT3_DemolitionistsCharge",
-    "name": "Demolitionist's Charge",
+    "id": "TFT3_BattlecastArmore",
+    "name": "Battlecast Armor",
     "slot": 1,
-    "synergy": "TFT3_Demolitionist"
+    "synergy": "TFT3_Battlecast"
   },
   {
     "id": "TFT3_JeweledGauntlet",

@@ -1,4 +1,6 @@
+export { default as tft3_astro } from './tft3_astro.png';
 export { default as tft3_blademaster } from './tft3_blademaster.png';
+export { default as tft3_battlecast } from './tft3_battlecast.png';
 export { default as tft3_blaster } from './tft3_blaster.png';
 export { default as tft3_brawler } from './tft3_brawler.png';
 export { default as tft3_celestial } from './tft3_celestial.png';
@@ -18,6 +20,5 @@ export { default as tft3_sorcerer } from './tft3_sorcerer.png';
 export { default as tft3_spacepirate } from './tft3_spacepirate.png';
 export { default as tft3_starguardian } from './tft3_starguardian.png';
 export { default as tft3_starship } from './tft3_starship.png';
-export { default as tft3_valkyrie } from './tft3_valkyrie.png';
-export { default as tft3_void } from './tft3_void.png';
 export { default as tft3_vanguard } from './tft3_vanguard.png';
+export { default as tft3_paragon } from './tft3_paragon.png';
