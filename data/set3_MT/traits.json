@@ -1,5 +1,17 @@
 [
 	{
+		"key": "TFT3_Astro",
+		"name": "Astro",
+		"description": "Reduce your Astro champs’ mana costs by 30.",
+		"type": "class",
+		"sets": [
+			{
+				"style": "gold",
+				"min": 3
+			}
+		]
+	},
+	{
 		"key": "TFT3_Blademaster",
 		"name": "Blade master",
 		"description": "Blademasters' Basic Attacks have a chance to trigger two additional attacks against their target. These additional attacks deal damage like Basic Attacks and trigger on-hit effects.",
@@ -35,6 +47,28 @@
 			{
 				"style": "gold",
 				"min": 4
+			}
+		]
+	},
+	{
+		"key": "TFT3_Battlecast",
+		"name": "Battlecast",
+		"description": "Upon dealing or taking 10 instances of damage, trigger a bonus effect based on their current health. If they’re above half health, they deal 75/150/225 magic damage to the nearest enemy. If they’re below half health, they heal for 75/150/225 instead.",
+		"type": "class",
+		"sets": [
+			{
+				"style": "bronze",
+				"min": 2,
+				"max": 3
+			},
+			{
+				"style": "silver",
+				"min": 4,
+				"max": 5
+			},
+			{
+				"style": "gold",
+				"min": 6
 			}
 		]
 	},
@@ -96,6 +130,10 @@
 			{
 				"style": "gold",
 				"min": 6
+			},
+			{
+				"style": "chromatic",
+				"min": 8
 			}
 		]
 	},
@@ -124,17 +162,21 @@
 		"sets": [
 			{
 				"style": "bronze",
-				"min": 3,
+				"min": 2,
+				"max": 3
+			},
+			{
+				"style": "silver",
+				"min": 4,
 				"max": 5
 			},
 			{
 				"style": "gold",
-				"min": 6,
-				"max": 8
+				"min": 6
 			},
 			{
 				"style": "chromatic",
-				"min": 9
+				"min": 8
 			}
 		]
 	},
@@ -232,6 +274,18 @@
 		]
 	},
 	{
+		"key": "TFT3_Paragon",
+		"name": "Paragon",
+		"innate": "Your team’s basic attacks are converted to magic damage",
+		"type": "class",
+		"sets": [
+			{
+				"style": "gold",
+				"min": 1
+			}
+		]
+	},
+	{
 		"key": "TFT3_Protector",
 		"name": "Protector",
 		"description": "Protectors shield themselves for a few seconds whenever they cast a spell. This shield doesn't stack.",
@@ -282,8 +336,13 @@
 		"type": "class",
 		"sets": [
 			{
+				"style": "silver",
+				"min": 2,
+				"max": 3
+			},
+			{
 				"style": "gold",
-				"min": 2
+				"min": 4
 			}
 		]
 	},
@@ -361,18 +420,6 @@
 		]
 	},
 	{
-		"key": "TFT3_Valkyrie",
-		"name": "Valkyrie",
-		"description": "Valkyrie attacks and spells always critically hit targets below a percentage health.",
-		"type": "origin",
-		"sets": [
-			{
-				"style": "gold",
-				"min": 2
-			}
-		]
-	},
-	{
 		"key": "TFT3_Vanguard",
 		"name": "Vanguard",
 		"description": "Vanguard champions gain bonus Armor.",
@@ -384,20 +431,13 @@
 				"max": 3
 			},
 			{
-				"style": "gold",
-				"min": 4
-			}
-		]
-	},
-	{
-		"key": "TFT3_Void",
-		"name": "Void",
-		"description": "Attacks and spells from Void champions deal true damage.",
-		"type": "origin",
-		"sets": [
+				"style": "silver",
+				"min": 4,
+				"max": 5
+			},
 			{
 				"style": "gold",
-				"min": 3
+				"min": 6
 			}
 		]
 	}
