@@ -32,8 +32,9 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const router = useRouter()
     const AlertContextValue = useContext(AlertContext);
 
-    const endpoint = 'http://localhost:4040/api';
-
+    // const endpoint = 'http://localhost:4040/api';
+    const endpoint = 'http://217.160.65.195:4040/api';
+    
     useEffect(() => {
         if (router.query.deck) {
             axios.get(`${endpoint}/comps/${router.query.deck}`).then(res => {
