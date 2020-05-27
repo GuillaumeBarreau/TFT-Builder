@@ -1,0 +1,13 @@
+.mainContent {
+  position: fixed;
+  padding: 1rem 2rem;
+  background-color: aquamarine;
+  border-radius: 4px;
+  bottom: 2rem;
+  display: flex;
+}
+
+.mainContent_span {
+  margin-left: 1rem;
+  cursor: pointer;
+}
