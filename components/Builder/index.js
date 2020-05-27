@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useRouter } from 'next/router'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -16,6 +16,8 @@ import { addOrDeleteTrait } from '../../logic/traits.logic';
 import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
 import { convertBoardToUrl, convertUrlToObject } from '../../logic/convertBoardToUrl.logic';
+import { AlertContext } from "../../contexts/AlertContext";
+
 import copy from 'copy-to-clipboard';
 
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board, images }) => {
@@ -28,6 +30,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const [traitHover, setTraitHover] = useState(null);
     const [listSwap, setListSwap] = useState(false);
     const router = useRouter()
+    const AlertContextValue = useContext(AlertContext);
 
     const endpoint = 'http://localhost:4040/api';
 
@@ -47,6 +50,10 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
             data: convertBoardToUrl(board),
         }).then(res => {
             copy(`${location.protocol}//${location.host}/?deck=${res.data._id}`);
+            AlertContextValue.setAlert({
+                type: 'alert',
+                message: `The URL is copied to your clipboard. `
+            })
         });
     }
 
