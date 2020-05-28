@@ -7,6 +7,7 @@ export const addChampion = (board, target, champions, championSelect) => {
     // La position du {board}[X][Y] récupére les données de élément dans le tableau champions correspond à {championSelect}
     board[getXCood][getYCood] = {...champions.find(champion => champion.championId === championSelect)};
     // ON retourne notre {board}
+    
     return board;
 };
 

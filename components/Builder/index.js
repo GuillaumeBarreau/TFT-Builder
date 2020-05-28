@@ -17,7 +17,6 @@ import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
 import { convertBoardToUrl, convertUrlToObject } from '../../logic/convertBoardToUrl.logic';
 import { AlertContext } from "../../contexts/AlertContext";
-
 import copy from 'copy-to-clipboard';
 
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board, images }) => {
@@ -29,23 +28,36 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const [selectedTraits, setSelectedTraits] = useState([]);
     const [traitHover, setTraitHover] = useState(null);
     const [listSwap, setListSwap] = useState(false);
+    const [mongoDB, setMongoDB] = useState(false);
     const router = useRouter()
     const AlertContextValue = useContext(AlertContext);
 
-    // const endpoint = 'http://localhost:4040/api';
-    const endpoint = 'http://217.160.65.195:4040/api';
-    
+    const endpoint = 'http://localhost:4040/api';
+
     useEffect(() => {
-        if (router.query.deck) {
+            axios.get(`${endpoint}`).then(() => {
+                console.log("BDD ON")
+                setMongoDB(true)
+            }).catch(() => {
+                    console.log("BDD OFF")
+                }
+            );
+        
+        if (router.query.deck && mongoDB) {
             axios.get(`${endpoint}/comps/${router.query.deck}`).then(res => {
                 if (res.data._id) {
                     const convertData = convertUrlToObject(res.data.data);
                     dispatch(SHARE_BOARD_ACTION(convertData));
+                    setMongoDB(false)
                 }
-            });
+            }).catch(
+                () => {  
+
+                }
+            );
         }
     }, []);
-    
+
     const postDataBoard = () => {
         axios.post(`${endpoint}/comps`, {
             data: convertBoardToUrl(board),
@@ -152,7 +164,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
 
     return (
         <div className={style.mainContent}>
-            <div className={style.mainContent_left} > 
+            <div className={style.mainContent_left} >
                 {
                     (menuTraitsDisplay && !listSwap) && (
                         <Traits
@@ -204,9 +216,11 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                                 <Button color="warn" onClick={() => onClickClearboard()}>
                                     Clear
                                 </Button>
-                                <Button color="green" onClick={postDataBoard}>
-                                    Save
-                                </Button>
+                                { 
+                                    mongoDB && <Button color="green" onClick={postDataBoard}>
+                                        Save
+                                    </Button>
+                                }
                             </>
                         )
                     }
@@ -235,7 +249,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
 };
 
 Builder.propTypes = {
-    dispatch: PropTypes.func, 
+    dispatch: PropTypes.func,
     champions: PropTypes.arrayOf(
         PropTypes.shape({
             championId: PropTypes.string,
@@ -243,12 +257,12 @@ Builder.propTypes = {
             name: PropTypes.string,
             traits: PropTypes.arrayOf(PropTypes.string)
         })
-    ).isRequired, 
+    ).isRequired,
     items: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string,
             name: PropTypes.string
-    })).isRequired,
+        })).isRequired,
     championsFilter: PropTypes.arrayOf(
         PropTypes.shape({
             championId: PropTypes.string,
@@ -256,7 +270,7 @@ Builder.propTypes = {
             name: PropTypes.string,
             traits: PropTypes.arrayOf(PropTypes.string)
         })
-    ).isRequired, 
+    ).isRequired,
     traits: PropTypes.arrayOf(
         PropTypes.shape({
             description: PropTypes.string,
@@ -271,14 +285,14 @@ Builder.propTypes = {
             ),
             type: PropTypes.string,
         })
-    ).isRequired, 
+    ).isRequired,
     board: PropTypes.arrayOf(
         PropTypes.arrayOf(PropTypes.object)
     ).isRequired
 };
 
 const mapStateToProps = state => {
-    
+
     return {
         champions: state.champions.data,
         championsFilter: state.filter.data,

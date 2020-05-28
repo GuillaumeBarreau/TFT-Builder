@@ -10,7 +10,8 @@ describe('BoardCaseItem component', () => {
     props = {
       id: "Groot",
       items: ["item01", "item02"],
-      onClickDeleteItem: jest.fn()
+      onClickDeleteItem: jest.fn(),
+      imagesItems: {},
     };
   });
 
