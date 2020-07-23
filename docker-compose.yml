@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+
+  production:
+    container_name: TFT-Builder-production
+    ports:
+      - 80:3000
+    build:
+      context: .
+      dockerfile: ./dockerFiles/production/Dockerfile
+    environment:
+      - NODE_ENV=production
+
+  dev:
+    container_name: TFT-Builder-development
+    build:
+      context: .
+      dockerfile: ./dockerFiles/dev/Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=dev
+    networks:
+      - analytics
+networks:
+  analytics:
+    driver: bridge
