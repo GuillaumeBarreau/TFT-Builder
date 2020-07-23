@@ -15,8 +15,8 @@ const STORE = {
     images: imagesReducer,
 };
 
-const reducers = combineReducers(
+const rootReducer = combineReducers(
     STORE
 );
 
-export default reducers;
+export default rootReducer;
