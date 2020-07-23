@@ -24,8 +24,8 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=dev
-    networks:
-      - analytics
+
 networks:
-  analytics:
-    driver: bridge
+  default:
+    external:
+      name: analytics-network
