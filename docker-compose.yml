@@ -16,7 +16,7 @@ services:
     container_name: TFT-Builder-development
     build:
       context: .
-      dockerfile: /dockerFiles/dev/Dockerfile
+      dockerfile: ./dockerFiles/dev/Dockerfile
     volumes:
       - '.:/app'
       - '/app/node_modules'
