@@ -32,23 +32,21 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const router = useRouter()
     const AlertContextValue = useContext(AlertContext);
 
-    const endpoint = 'http://localhost:4040/api';
+    const endpoint = 'http://127.0.0.1:4040/api';
 
     useEffect(() => {
-            axios.get(`${endpoint}`).then(() => {
+        axios.get(`${endpoint}/comps`).then(() => {
                 console.log("BDD ON")
-                setMongoDB(true)
             }).catch(() => {
                     console.log("BDD OFF")
                 }
             );
         
-        if (router.query.deck && mongoDB) {
+        if (router.query.deck) {
             axios.get(`${endpoint}/comps/${router.query.deck}`).then(res => {
                 if (res.data._id) {
                     const convertData = convertUrlToObject(res.data.data);
                     dispatch(SHARE_BOARD_ACTION(convertData));
-                    setMongoDB(false)
                 }
             }).catch(
                 () => {  
