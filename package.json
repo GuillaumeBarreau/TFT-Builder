@@ -55,5 +55,5 @@
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0"
   },
-  "snyk": true
+  "snyk": false
 }
