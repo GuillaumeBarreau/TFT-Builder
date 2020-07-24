@@ -32,7 +32,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const router = useRouter()
     const AlertContextValue = useContext(AlertContext);
 
-    const endpoint = 'http://127.0.0.1:4040/api';
+    const endpoint = 'http://localhost:4040/api';
 
     useEffect(() => {
         axios.get(`${endpoint}/comps`).then(() => {
