@@ -37,6 +37,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     useEffect(() => {
         axios.get(`${endpoint}/comps`).then(() => {
                 console.log("BDD ON")
+                console.log(`${endpoint}/comps`)
                 setMongoDB(true)
             }).catch(() => {
                     console.log("BDD OFF")
@@ -45,6 +46,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
         
         if (router.query.deck) {
             axios.get(`${endpoint}/comps/${router.query.deck}`).then(res => {
+                console.log("HERE res :: ", res)
                 if (res.data._id) {
                     const convertData = convertUrlToObject(res.data.data);
                     dispatch(SHARE_BOARD_ACTION(convertData));
