@@ -37,6 +37,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     useEffect(() => {
         axios.get(`${endpoint}/comps`).then(() => {
                 console.log("BDD ON")
+                setMongoDB(true)
             }).catch(() => {
                     console.log("BDD OFF")
                 }
