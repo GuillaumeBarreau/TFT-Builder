@@ -35,6 +35,7 @@
 import { Provider } from "react-redux";
 import withRedux from "next-redux-wrapper";
 import store from "../store/configureStore";
+import '../assets/styles/tailwind.css'
 import '../assets/styles/reset.css'
 
 const MyApp = props => {
@@ -51,7 +52,6 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
         ? await Component.getInitialProps(ctx)
         : {};
 
-    console.log("pageProps", pageProps);
     return { pageProps };
 };
 

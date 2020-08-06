@@ -1,20 +1,25 @@
 .mainContent {
   margin: 0.5rem 1rem;
   border-style: solid;
-  border-width: 2px;
+  border-width: 0.125rem;
   border-radius: 0;
   padding: 0.5rem 2rem;
   color: #f0efef;
   font-size: 1.125rem;
   font-weight: 400;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   cursor: pointer;
-  letter-spacing: 1.6px;
+  letter-spacing: 0.1rem;
+  box-shadow: 0.0313rem 0.0625rem 0.0625rem 0.0625rem #1e2328;
+
 }
 
+.mainContent:focus {
+    outline: none;
+}
 
 .primary {
-  background: #1e2328;
+  background: none;
   border-color: #4f819e;
 }
 
@@ -32,12 +37,13 @@
 }
 
 .warn {
-  background: #1e2328;
   border-color: #9e3e3e;
 }
 
 .warn:hover {
   background-color: #9e3e3e;
+  border-color: #9e3e3e;
+  background: #9e3e3e;
 } 
 
 .warn:active {

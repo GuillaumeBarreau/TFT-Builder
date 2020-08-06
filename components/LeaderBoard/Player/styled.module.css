@@ -1,0 +1,14 @@
+.mainContent {
+  border-collapse:separate; 
+  border-spacing: 0 1em;
+}
+
+.mainContent_text {
+  padding: 1rem 0;
+  border-top: 1px solid rgb(7, 14, 19);
+  text-align: center;
+}
+
+.mainContent_text > p {
+  text-align: left;
+}

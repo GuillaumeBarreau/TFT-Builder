@@ -32,7 +32,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const router = useRouter()
     const AlertContextValue = useContext(AlertContext);
 
-    const endpoint = 'http://localhost:4040/api';
+    const endpoint = 'http://127.0.0.1:4040/api';
 
     useEffect(() => {
         axios.get(`${endpoint}/comps`).then(() => {
@@ -142,6 +142,8 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
     const synergies = renderSynergies(champions, traits, board);
     const onClickAddElement = listSwap ? onClickAddItem : onClickAddChampion;
 
+    const count = countChampion(board);
+    
     const list = !listSwap
         ? (
             <Champions
@@ -212,7 +214,7 @@ export const Builder = ({ dispatch, champions, items, championsFilter, traits, b
                         }
                     </Button>
                     {
-                        countChampion(board) && (
+                        countChampion(board) !== 0 && (
                             <>
                                 <Button color="warn" onClick={() => onClickClearboard()}>
                                     Clear
