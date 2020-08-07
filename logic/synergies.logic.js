@@ -3,7 +3,7 @@ import { concatMultidimensionalArray } from './arrayProcessing/concatMultidimens
 export const renderSynergies = (championsList, traits, board) => {
 
     let championsSelected = [];
-    
+
     board.forEach((lane) => {
         championsSelected = [...championsSelected, ...lane.filter((data) => Object.keys(data).length)]
     });

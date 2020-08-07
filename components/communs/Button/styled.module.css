@@ -11,7 +11,11 @@
   cursor: pointer;
   letter-spacing: 0.1rem;
   box-shadow: 0.0313rem 0.0625rem 0.0625rem 0.0625rem #1e2328;
+}
 
+.mainContent:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
 }
 
 .mainContent:focus {

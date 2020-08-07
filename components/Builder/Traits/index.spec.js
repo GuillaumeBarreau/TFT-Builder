@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Traits as Component } from './';
+import { Traits as Component } from '.';
 import { Button } from '../communs/Button';
 
 describe('Traits component', () => {

@@ -1,12 +1,13 @@
 import style from './styled.module.css';
 import PropTypes from 'prop-types';
 import { Player } from '../Player';
+import { Button } from '../../communs/Button';
 
 export const ListPlayers = ({ dataListPlayers, onClickNextRange, dataPlayersRange, onClickPrevRange, countPlayers, range }) => {
 
   return (
     <div>
-      <table className={`min-w-full leading-normal ${style.mainContent}`}>
+      <table className={style.mainContent}>
         <thead>
           <tr className="bg-gray-700 text-gray-300 border-gray-800 uppercase text-left text-xs font-semibold tracking-wider">
             <th className="px-5 py-3">rank</th>
@@ -32,22 +33,23 @@ export const ListPlayers = ({ dataListPlayers, onClickNextRange, dataPlayersRang
         </tbody>
       </table>
       <div
-        className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-        <span className="text-xs xs:text-sm text-gray-900">
+        className="px-5 py-5 border-t flex flex-col xs:flex-row items-center xs:justify-between">
+        <span className="text-xs xs:text-sm text-gray-100">
           Showing {dataPlayersRange + 1} to {range > countPlayers ? countPlayers : range} of {countPlayers} Entries.
         </span>
         <div className="inline-flex mt-2 xs:mt-0">
-          <button
+          <Button
+            disabled={!onClickPrevRange ? 'disabled' : null}
             onClick={onClickPrevRange}
-            className={`text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4${!onClickPrevRange ? ' opacity-50 cursor-not-allowed' : ''} `}>
+          >
             Prev
-          </button>
-          <button
+          </Button>
+          <Button
+            disabled={!onClickNextRange ? 'disabled' : null}
             onClick={onClickNextRange}
-            className={`button text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4${!onClickNextRange ? ' opacity-50 cursor-not-allowed' : ''}`}
           >
             Next
-          </button>
+          </Button>
         </div>
       </div>
     </div>

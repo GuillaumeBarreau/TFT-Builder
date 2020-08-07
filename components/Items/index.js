@@ -1,6 +1,6 @@
 import style from './styled.module.css';
 import { Board } from './Board';
-// import data from '../../data/set3/combineItems.json';
+import data from '../../data/set3/combineItems.json';
 
 export const Items = () => {
   
@@ -8,7 +8,7 @@ export const Items = () => {
     <div
       className={style.mainContent}
     >
-      {/* <Board data={data}></Board> */}
+      <Board data={data}></Board>
     </div>
   )
 };

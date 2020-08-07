@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import style from './styled.module.css';
+// Import Components
 import { Board } from './Board';
 import { Champions } from './ListChampions';
 import { Items } from './ListItems';
@@ -11,15 +12,24 @@ import { Traits } from './Traits';
 import { Synergies } from './Synergies';
 import { Button } from '../communs/Button';
 import { List } from './List';
+import { AlertContext } from "../../contexts/AlertContext";
+// Import actions
 import { RESET_TRAITS_ACTION, SORT_CHAMPIONS_ACTION, ADD_CHAMPION_ACTION, DELETE_CHAMPION_ACTION, ADD_ITEM_ACTION, DELETE_ITEM_ACTION, MOVE_CHAMPION_ACTION, CLEAR_BOARD_ACTION, SHARE_BOARD_ACTION } from '../../store/actions/builder';
 import { addOrDeleteTrait } from '../../logic/traits.logic';
 import { renderSynergies } from '../../logic/synergies.logic';
 import { countChampion } from '../../logic/champion.logic';
 import { convertBoardToUrl, convertUrlToObject } from '../../logic/convertBoardToUrl.logic';
-import { AlertContext } from "../../contexts/AlertContext";
 import copy from 'copy-to-clipboard';
 
 export const Builder = ({ dispatch, champions, items, championsFilter, traits, board, images }) => {
+    // console.log("Builder -> images", images)
+    // console.log("Builder -> board", board)
+    console.log("Builder -> traits", traits)
+    // console.log("Builder -> championsFilter", championsFilter)
+    // console.log("Builder -> champions", champions)
+    // console.log("Builder -> items", items)
+    // console.log("Builder -> dispatch", dispatch)
+    
     const [actionUser, setActionUser] = useState('');
     const [championSelect, setChampionSelect] = useState('');
     const [itemSelect, setItemSelect] = useState('');
@@ -295,6 +305,7 @@ Builder.propTypes = {
 };
 
 const mapStateToProps = state => {
+    console.log("state", state)
 
     return {
         champions: state.champions.data,
