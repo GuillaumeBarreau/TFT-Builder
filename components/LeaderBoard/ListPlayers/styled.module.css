@@ -1,0 +1,13 @@
+.mainContent {
+  border-collapse:separate; 
+  border-spacing: 0 .25em;
+  min-width: 100%;
+  line-height: 1.5;
+}
+
+.mainContent_text {
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+}

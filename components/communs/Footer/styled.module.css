@@ -1,8 +1,7 @@
 .mainContent {
 	padding: 2rem;
-	background: rgb(7, 14, 19);
+	background-color: #1a202c;
   color: white;
-  border-top: 2px solid rgba(20, 25, 29, 0.692);
   text-align: center;
 };
 

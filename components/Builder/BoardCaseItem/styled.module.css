@@ -41,6 +41,7 @@
 
 .mainContent_item:hover svg {
   cursor: pointer;
+  width: 100%;
   background: white;
   border: 0.0625rem solid white;
   border-radius: 50%;

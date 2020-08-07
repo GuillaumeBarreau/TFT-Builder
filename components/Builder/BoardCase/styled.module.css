@@ -25,7 +25,7 @@
 
 .mainContent_background {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background-color: rgba(17, 32, 39, 1);
+  background-color: #2d3748;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -38,7 +38,7 @@
 
 .mainContent_list:empty:hover {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background-color: rgb(35, 62, 75);
+  background-color: #4f819e;
   cursor: pointer;
 }
 

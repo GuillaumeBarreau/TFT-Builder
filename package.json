@@ -51,9 +51,11 @@
     "eslint-plugin-react": "^7.19.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
+    "postcss-preset-env": "^6.7.0",
     "sinon": "^9.0.2",
     "stylelint": "^13.3.3",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-standard": "^20.0.0",
+    "tailwindcss": "^1.6.2"
   },
   "snyk": false
 }
