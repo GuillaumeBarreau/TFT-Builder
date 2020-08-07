@@ -1,3 +1,3 @@
-import { Home } from './Home.js';
+import index from './Builder';
 
-export default Home;
+export default index;

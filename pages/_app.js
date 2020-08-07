@@ -1,4 +1,3 @@
-// import App from 'next/app';
 // import { Provider } from 'react-redux';
 // import React from 'react';
 // import withRedux from "next-redux-wrapper";
@@ -32,18 +31,32 @@
 // //withRedux wrapper that passes the store to the App Component
 // export default withRedux(makeStore)(MyApp);
 
+import { useState } from "react";
 import { Provider } from "react-redux";
 import withRedux from "next-redux-wrapper";
 import store from "../store/configureStore";
-import '../assets/styles/tailwind.css'
+import { AlertContext } from "../contexts/AlertContext";
 import '../assets/styles/reset.css'
+import '../assets/styles/tailwind.css'
 
 const MyApp = props => {
     const { Component, pageProps } = props;
+    const [alert, setAlert] = useState({});
+    
     return (
-        <Provider store={store}>
-            <Component {...pageProps} />
-        </Provider>
+        <>
+            <AlertContext.Provider value={{ alert, setAlert }}>
+            <Provider store={store}>
+                <Component {...pageProps} />
+            </Provider>
+            </AlertContext.Provider>
+            {alert.message && (
+                <Message
+                    alert={alert}
+                    onClick={setAlert}
+                />
+            )}
+        </>
     );
 };
 

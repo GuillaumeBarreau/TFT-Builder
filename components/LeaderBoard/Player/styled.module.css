@@ -1,14 +1,26 @@
 .mainContent {
-  border-collapse:separate; 
-  border-spacing: 0 1em;
+  background-color: #2d3748;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #e2e8f0;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 1.25rem;
 }
 
-.mainContent_text {
-  padding: 1rem 0;
-  border-top: 1px solid rgb(7, 14, 19);
-  text-align: center;
+.mainContent:hover {
+  background-color: #464f5d;
 }
 
-.mainContent_text > p {
-  text-align: left;
+.mainContent_item {
+  padding: 1.25rem;
+}
+
+.mainContent_item_image {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
 }
