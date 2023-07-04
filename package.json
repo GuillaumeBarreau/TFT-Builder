@@ -25,7 +25,7 @@
     "base64url": "^3.0.1",
     "copy-to-clipboard": "^3.3.1",
     "history": "^4.10.1",
-    "next": "^9.3.6",
+    "next": "^10.0.2",
     "next-redux-wrapper": "^6.0.2",
     "next-images": "^1.4.0",
     "react": "^16.13.1",
@@ -36,7 +36,7 @@
     "react-redux-form": "^1.16.14",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "snyk": "^1.360.0"
+    "snyk": "^1.685.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
